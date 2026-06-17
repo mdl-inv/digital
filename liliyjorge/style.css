@@ -1,0 +1,1538 @@
+/* styles.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+  background-color: #e9ebe8;
+}
+
+ /* Contenedor principal */
+    #contenidoCelular { display: none; }
+    #mensajeEscritorio { display: none; text-align: center; margin-top: 50px; font-size: 1.5rem; }
+
+    /* Solo mostrar contenido en móviles */
+    @media (max-width: 768px) {
+      #contenidoCelular { display: block; }
+    }
+
+    /* Solo mostrar mensaje en escritorio */
+    @media (min-width: 769px) {
+      #mensajeEscritorio { display: block; }
+    }
+
+/* 1️⃣ Anthony Hunter */
+@font-face {
+  font-family: 'Anthony Hunter';
+  src: url('fonts/anthony_hunter/AnthonyHunter.woff2') format('woff2'),
+       url('fonts/anthony_hunter/AnthonyHunter.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Vintage Goods';
+  src: url('fonts/Vintage-Goods-Script/Vintage-Goods-Script/VintageGoods.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Eyesome Duo Script';
+  src: url('fonts/eyesome-duo-script_freefontdownload_org/eyesome-duo-script.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Hero modificado */
+.hero {
+  position: relative;
+  height: 70vh; /* menos alto que 100vh */
+  max-height: 600px; /* opcional para pantallas grandes */
+  background: url('https://mideldigital.com/naylayale/images/STD-4714.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 50% 100%, 0 95%);
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.3);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+  animation: fadeIn 1.5s forwards;
+  padding-top: 90%; /* ajusta la distancia desde arriba */
+}
+
+.hero h1 {
+  font-size: 3.05em;
+  font-family: 'Eyesome Duo Script', cursive;
+  font-weight: 100; /* más delgada */
+ 
+
+}
+.hero p { font-size: 1.5em; margin: 10px 0; }
+
+.hero button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 1.2em;
+  border-radius: 50px;
+  background-color: #272627;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  background-color: #484848;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn { from {opacity:0} to {opacity:1} }
+
+/* Detalles */
+.details, .guestbook, .carousel-section {
+  padding: 50px 20px;
+  text-align: center;
+  background: #fff;
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+button { margin-top: 20px; }
+
+/* Carousel */
+.carousel-section {
+  max-width: 900px;
+  margin: 0 auto;
+  perspective: 1200px;
+  text-align: center;
+  background: transparent;
+}
+
+.carousel {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 90%;
+  height: 100%;
+  transform: translateX(-50%) scale(0.9);
+  border-radius: 20px;
+  overflow: hidden;
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  cursor: grab;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Slide activa */
+.carousel-slide.active {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  z-index: 2;
+}
+
+/* Indicadores */
+.carousel-indicators {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px; /* espacio entre rayitas */
+  z-index: 10;
+}
+
+.carousel-indicators button {
+  width: 20px;       /* ancho de la rayita */
+  height: 4px;       /* altura de la rayita */
+  border-radius: 2px; /* esquinas redondeadas opcional */
+  border: none;
+  background: #ccc;
+  cursor: pointer;
+  flex-shrink: 0;     /* no se deforma */
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-indicators button.active {
+  background: #6a5b1e; /* color de la rayita activa */
+  transform: scale(1.2, 1); /* agranda un poco horizontalmente */
+}
+
+
+
+
+
+
+
+
+
+
+/* Libro de Firmas */
+#guestbook-entries .entry {
+  background: #ffe6f0;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+/* Ocultar por defecto */
+.hidden { display: none; }
+
+
+/* ====== SECCIÓN DETALLES ====== */
+.details {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.details h2 {
+  color: #6b4e26;
+  margin-bottom: 20px;
+}
+
+.details button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #6b6b26;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+
+/* ====== SECCIÓN DETALLES ====== */
+.details {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.details h2 {
+  color: #6b4e26;
+  margin-bottom: 20px;
+}
+
+.details button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #6b6b26;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+/* ====== SECCIÓN CELEBRACIÓN ====== */
+.celebracion-section {
+  background: url('./images/STD-4180.jpg') center/cover no-repeat;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.celebracion-sectionrec {
+  background: url('./images/STD-4418.jpg') center/cover no-repeat;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+.celebracion-card {
+  background-color: rgba(255, 255, 255, 0.611);
+  text-align: center;
+   padding: 10px 50px 40px 50px; 
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.celebracion-icon-img {
+  width: 70px;   /* ajusta al tamaño que quieras */
+  height: 70px;  /* mantiene proporción si quieres igual ancho y alto */
+  margin: 10px 0; /* espacio arriba y abajo */
+  object-fit: contain; /* para que la imagen no se deforme */
+  opacity: 0.5;
+}
+
+/* Animación del texto */
+.animateText {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(270deg,#9c916b, #b98604, #5c5640, #9c916b);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animateText 8s ease-in-out infinite alternate;
+  letter-spacing: 3px; /* aumenta o disminuye según lo que quieras */
+   margin-top: 0;
+   margin-bottom: 40px;
+}
+
+@keyframes animateText {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+
+.celebracion-icon {
+  font-size: 2rem;
+  color: #b89a5c;
+  margin: 10px 0;
+}
+
+.celebracion-lugar {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.5rem;
+  color: #6b4e26;
+  margin-bottom: 10px;
+}
+
+.celebracion-detalles {
+  font-size: .8rem;
+  line-height: 1.6;
+  font-family: 'Jost', sans-serif;
+}
+
+.celebracion-hora {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: .8rem;
+  font-family: Jost, sans-serif;
+}
+
+.celebracion-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 25px;
+  background-color: #95765c;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+  font-family: jost, sans-serif;
+}
+
+.celebracion-btn:hover {
+  background-color: #95765ce7;
+}
+
+
+
+
+.celebracion-cardrec {
+  background-color: rgba(255, 255, 255, 0.611);
+  text-align: center;
+  padding: 40px 50px;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Animación del texto */
+.animateTextrec {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(270deg,#9c916b, #b98604, #5c5640, #9c916b);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animateText 8s ease-in-out infinite alternate;
+  letter-spacing: 3px; /* aumenta o disminuye según lo que quieras */
+}
+
+@keyframes animateText {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+
+.celebracion-iconrec {
+  font-size: 2rem;
+  color: #b89a5c;
+  margin: 10px 0;
+}
+
+.celebracion-lugarrec {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.5rem;
+  color: #6b4e26;
+  margin-bottom: 10px;
+}
+
+.celebracion-detallesrec {
+  font-size: .8rem;
+  line-height: 1.6;
+  font-family: 'Jost', sans-serif;
+}
+
+.celebracion-horarec {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: .8rem;
+  font-family: Jost, sans-serif;
+}
+
+.celebracion-btnrec {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 25px;
+  background-color: #95765c;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+  font-family: jost, sans-serif;
+}
+
+.celebracion-btnrec:hover {
+  background-color: #95765ce7;
+}
+
+
+
+/* Fuente Karla para la fecha */
+.mensaje-inicial .fecha {
+  font-family: 'Karla', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #4a4a4adc;
+  text-align: center;
+  margin: 0 0 5px 0; /* espacio pequeño debajo de la fecha */
+}
+
+/* Fuente Dancing Script para el título del contador */
+.section-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.2em;
+  text-align: center;
+  color: #95765c;
+  margin: 0 0 15px 0;
+
+  opacity: 0;
+  transform: translateX(100px);
+  transition: transform 2.5s ease-out, opacity 2.5s ease-out;
+}
+
+.section-title.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Ajustes de espacio para la sección completa */
+.countdown-wrapper {
+  padding: 20px;
+}
+.countdown-section {
+  padding: 0; /* ya reducimos espacio arriba y abajo */
+  margin: 0 auto;
+}
+
+/* Contador sigue igual */
+.countdown {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.time-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 100px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.time-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.digit {
+  font-size: 36px;
+  font-family: 'Karla', sans-serif; /* puedes mantener Karla o cambiar */
+  color: #2d2d2d;
+}
+
+.label {
+  font-size: 14px;
+  font-family: 'Dancing Script', cursive;
+  color: #6d6d6d;
+  margin: 0;
+}
+
+@media (max-width: 500px) {
+  .time-box {
+    width: 60px;
+    height: 80px;
+  }
+  .digit {
+    font-size: 24px;
+  }
+  .label {
+    font-size: 12px;
+  }
+  .mensaje-inicial .fecha {
+    font-size: 16px;
+  }
+  .section-title {
+    font-size: 1.6em;
+  }
+}
+
+/* Separador arriba de la fecha */
+.separator {
+  text-align: center;
+  margin-bottom: 10px; /* espacio debajo del separador */
+}
+
+.separator img {
+  max-width: 150px;  /* ajusta según necesites */
+  width: 50%;        /* responsive */
+  height: auto;
+}
+/* Contador fin */
+/*frase de boda */
+.frase-boda {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .frase-boda p {
+    font-family: 'Jost', sans-serif;
+    font-size: 1rem;
+    color: #3c3c38c5;
+    margin: 20px;
+    display: inline-block;
+    white-space: pre-line; /* respeta los saltos */
+    line-height: 1.5;
+  }
+
+  /* Cursor parpadeante */
+  #fraseBoda::after {
+    content: '|';
+    animation: blink 0.8s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+  }
+/*fin frase boda */
+
+/*frase de boda final*/
+.frase-boda-final {
+    text-align: center;
+    border-radius: 16px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 25px;
+  }
+
+  .frase-boda-final h2 {
+  font-family: 'Karla', sans-serif;
+  font-size: 1.2rem;
+  color: #5c5446;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  }
+
+  .frase-boda-final p {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.2em;
+  text-align: center;
+  color: #95765c;
+  margin: 0 0 15px 0;
+  }
+
+  /* Cursor parpadeante */
+  #frase-boda-final::after {
+    content: '|';
+    animation: blink 0.8s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+  }
+/*fin frase boda final */
+  /* Cursor parpadeante */
+.imagen-picuda {
+  position: relative;
+  width: 100%;
+  height: 60vh;       /* sección más larga */
+  max-height: 800px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(
+  50% 0%,    /* pico arriba */
+  100% 5%,   /* esquina superior derecha */
+  100% 95%,  /* esquina inferior derecha */
+  50% 100%,  /* pico abajo */
+  0% 95%,    /* esquina inferior izquierda */
+  0% 5%      /* esquina superior izquierda */
+);
+
+}
+
+.imagen-picuda img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.imagen-picuda .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.2); /* sombreado leve */
+}
+
+
+.seccion-fondo-estetica {
+  max-width: 300px;               /* ancho contenido */
+  margin: 50px 30px;              /* centrado vertical y horizontal */
+  padding: 40px 30px;             /* espacio interno */
+  background-image: url('./images/papel.png'); /* fondo tipo papel */
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  text-align: center;
+  position: relative;             /* para el overlay si se desea */
+  font-family: 'Playfair Display', serif;
+}
+
+.seccion-fondo-estetica .nombres-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.nombre-novio {
+  font-family: 'Dancing Script', cursive;
+  font-size: .5rem;
+  color: #3c352a;
+}
+
+.simbolo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  margin: 10px 0;
+  color: #705c43;
+}
+
+.bendicion {
+  margin-top: 20px;
+  font-family: 'Karla', sans-serif;
+  color: #9c916b;
+  text-align: center;
+  font-weight: 300; /* más delgada */
+}
+
+.texto-bendicion {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.padres {
+   margin-top: 20px;
+  font-family: 'Karla', sans-serif;
+  color: #3f3f3f;
+  text-align: center;
+  font-weight: 300; /* más delgada */
+  font-size: .8rem;
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+  .seccion-fondo-estetica {
+    max-width: 90%;
+    padding: 70px 30px;
+  }
+
+  .nombre-novio {
+    font-size: .3rem;
+  }
+
+  .simbolo {
+    font-size: 1.5rem;
+    font-family: 'Great Vibes', cursive; /* fuente elegante */
+  }
+
+  .texto-bendicion {
+    font-size: 0.9rem;
+  }
+
+  .padres  {
+    font-size: .8rem;
+  }
+}
+
+
+/* ----- ANIMACIÓN FADE-IN ----- */
+.nombres-container .nombre,
+.nombre-novio,
+.simbolo,
+.texto-bendicion,
+.padres {
+  opacity: 0;
+  transform: translateY(30px); /* se desplaza desde abajo */
+  transition: all 1.5s ease-out;
+}
+
+.visible-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 768px) {
+  .nombre-novio {
+    font-size: 1.2rem;
+  }
+  .simbolo {
+    font-size: 1.5rem;
+  }
+  .texto-bendicion {
+    font-size: 0.9rem;
+  }
+  .padres div {
+    font-size: 0.8rem;
+  }
+  .seccion-fondo {
+    min-height: auto;
+    padding: 40px 15px;
+  }
+}
+.nombres-container {
+  position: relative;
+  z-index: 2; /* para que esté sobre el overlay */
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.nombres-container .nombre {
+  margin: 0.2rem 0;
+}
+
+
+
+.nombres-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  text-align: center;
+}
+
+.nombres-container .nombre {
+  font-family: 'Great Vibes', cursive; /* fuente elegante */
+  font-size: 3rem;
+  color: #fff;
+}
+
+/* Animación de fade-in desde abajo */
+.nombres-container .nombre,
+.nombre-novio,
+.simbolo,
+.texto-bendicion,
+.padres div {
+  opacity: 0;
+  transform: translateY(30px); /* se desplaza desde abajo */
+  transition: all 1.5s ease-out;
+}
+
+/* Clase que se activa al entrar en viewport */
+.visible-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+/*fin nombres*/
+
+/*intinerario */
+
+.itinerario-section {
+  background-color: #e9ebe8;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.itinerario-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  margin-bottom: 40px;
+  color: #5c5446;
+
+  font-weight: 300;        /* más delgada */
+  letter-spacing: 2px;     /* separa un poco las letras */
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  opacity: 0.3;  /* inicialmente más transparente */
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+/* Envolvemos el círculo en un wrapper */
+.circle-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px; /* ancho igual al círculo */
+}
+
+/* Línea vertical debajo del círculo */
+.circle-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 60px; /* justo debajo del círculo */
+  width: 4px;
+  height: calc(100% - 60px); /* hasta el siguiente círculo */
+  background: #d3cfc6;
+}
+
+.timeline-item:last-child .circle-wrapper::after {
+  display: none; /* no dibujar línea en el último */
+}
+
+.timeline-item.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.circle {
+  width: 80px;   /* círculo más grande */
+  height: 80px;
+  border-radius: 50%;
+  background: #d3cfc6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.6s;
+  z-index: 1;
+}
+
+
+.timeline-item.active .circle {
+  background: #95765c; /* color café */
+}
+
+.circle img {
+  width: 60%;    /* proporcional al círculo */
+  height: 60%;
+  object-fit: contain;
+  display: block;
+}
+
+.content h3 {
+  font-family: 'Karla', sans-serif;
+  font-size: 1.2rem;
+  margin: 15px 0 5px;
+  color: #3c352a;
+}
+
+.content p {
+  margin: 2px 0 0;
+  font-family: 'Karla', sans-serif;
+  color: #5c5446;
+  font-size: 1.2rem;
+}
+
+/* Fin itinerario */
+.invitacion-card {
+  width: 100vw;
+  min-height: 400px; /* altura mínima para que se vea más grande */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: #3c352a;
+
+  /* Imagen un poco más ancha y centrada verticalmente */
+ background: url('https://mideldigital.com/naylayale/images/pases2.png') center/cover no-repeat;
+
+  box-sizing: border-box;
+  padding-top: 100px; /* aumenta el espacio superior */
+  margin: 0;
+  overflow: hidden;
+}
+
+/* En móviles */
+@media (max-width: 480px) {
+  .invitacion-card {
+    min-height: 350px;
+    padding-top: 90px;
+    background-size: 120% auto; 
+  }
+}
+
+.invitacion-card p {
+  margin: 10px 0;
+  text-align: center;
+  margin-bottom: 0;   /* elimina margen debajo */
+}
+
+/* Nombre del invitado */
+#nombre {
+   display: inline-block;
+  max-width: calc(100vw - 150px); /* 20px de margen a cada lado */
+  text-align: center;
+  white-space: normal;            /* permite saltos de línea */
+  overflow-wrap: anywhere;        /* permite romper palabras largas */
+  word-break: break-word;         /* refuerzo para navegadores antiguos */
+  hyphens: auto;                  /* guiona si hace falta */
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  line-height: 1.3;
+  margin: 0 auto;  
+}
+
+/* Contenedor de PASES ASIGNADOS y número de personas */
+.pases-line {
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;
+  gap: 10px; /* espacio entre el texto y el número */
+  margin-top: 10px;
+}
+
+/* Texto “PASES ASIGNADOS:” */
+.pases-line strong {
+  font-family: 'Karla', sans-serif; /* fuente Karla */
+  font-size: 0.9rem;
+  font-weight: 300;       /* más delgada */
+  letter-spacing: 2px;    /* espacio entre letras */
+  color: #7b7874;
+}
+
+
+/* Número de personas */
+.pases-line span {
+  font-family: 'Josefin Sans', sans-serif; /* fuente Josefin Sans */
+  font-size: 1.5rem;
+  color: #61615f;
+}
+/* RESPONSIVE para celulares */
+@media (max-width: 480px) {
+  .invitacion-card {
+    max-width: 100%;
+    padding-top: 150px; /* ajusta proporcionalmente en móviles */
+  }
+
+  .invitacion-card p {
+    font-size: 1rem;
+  }
+}
+
+/*inicio reservacion de mesas */
+.rsvp-section {
+  max-width: 250px;              /* más estrecho */
+  margin: 50px 30px;             /* centrado vertical y horizontal */
+  padding: 20px 20px;            /* menos padding */
+  background-image: url('./images/papel2.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;           
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+
+.rsvp-section .section-title {
+  font-size: 1.2rem;            
+  margin-bottom: 6px;
+  color: #5a684f;
+}
+
+.rsvp-section .section-text {
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  color: #3c3c38;
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;                    
+}
+
+.rsvp-form label {
+  font-weight: 600;
+  text-align: left;
+  font-size: 0.9rem;
+    font-family: JOST, sans-serif;
+}
+
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+  padding: 5px 10px;            
+  border-radius: 10px;
+  border: 1px solid #b0afaa;
+  font-size: 0.85rem;
+
+}
+
+.question-label {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.options-inline-center {
+  display: flex;
+  justify-content: center;
+  gap: 15px;                    
+  margin-bottom: 8px;
+}
+
+.options-inline-center label {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.rsvp-form button {
+  background-color: #95765c;
+  color: #fff;
+  padding: 7px 15px;            
+  border: none;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.rsvp-form button:hover {
+  background-color: #95765cee;
+}
+
+/* Responsive: móviles */
+@media (max-width: 480px) {
+  .rsvp-section {
+    max-width: 90%;
+    padding: 30px 30px;
+  }
+  .rsvp-form input,
+  .rsvp-form select,
+  .rsvp-form textarea {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+  .rsvp-form button {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+/* fin reservacion de mesas */
+
+/* Sección de galería */
+.galeria {
+  padding: 60px 20px;
+  background-color: #e9ebe8;
+  text-align: center;
+}
+
+.galeria-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.2rem;
+  color: #95765c;
+  margin-bottom: 40px;
+}
+
+/* Grid de imágenes */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Cada item con animación */
+/* Cada item con animación */
+.galeria-item {
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.galeria-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Imagen dentro del item */
+.galeria-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.galeria-item img:hover {
+  transform: scale(1.05);
+}
+
+/*fin seccion de galeria */
+
+
+/* 🕊️ Tarjeta principal */
+.vestimenta-card {
+  width: 100%;
+  max-width: 420px;
+  margin: 40px auto;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), var(--card));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid rgba(139,92,246,0.06);
+  text-align: center;
+}
+
+/* Encabezado */
+
+.vestimenta-title {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  color: #1f2937;
+  font-weight: 600;
+  margin: 0;
+}
+
+.vestimenta-sub {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Imagen */
+.vestimenta {
+  text-align: center;
+  border-radius: 16px;
+  max-width: 400px;
+}
+
+.vestimenta h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #5c5446;
+    font-weight: 300;
+}
+
+.vestimenta img {
+  width: 40%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+
+.vestimenta .tipo {
+  font-family: "karla", sans-serif;
+  font-size: 2rem;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.btn-inspiracion {
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: #6b6b26;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+  font-family: jost, sans-serif;
+}
+
+.btn-inspiracion:hover {
+  background-color: #57571e;
+}
+
+
+/* fin vestimenta */
+
+/*inicio no niños */
+
+.noninos {
+  text-align: center;
+  border-radius: 16px;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 25px;
+}
+
+.noninos h2 {
+  font-family: 'Karla', sans-serif;
+  font-size: 1.2rem;
+  color: #5c5446;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.noninos .tipo {
+  font-family: 'Karla', sans-serif;
+  font-size: 1.3rem;
+  color: #9c916b;
+  font-style: italic;
+  font-weight: 400;
+}
+/* fin no niños */
+
+/*seccion regalos */
+.image-section-invitacion {
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  position: relative; /* permite posicionar los botones dentro */
+  text-align: center;
+}
+
+/* Contenedor interno */
+.image-button-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Imagen */
+.large-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Botones */
+.button-regalo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.9rem 1.6rem;
+  font-size: 1rem;
+  border-radius: 40px;
+  text-decoration: none;
+  color: #5e5e5e;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  background: transparent;
+  cursor: pointer;
+  font-family: "Times New Roman", serif;
+}
+
+/* Texto dentro del botón de efectivo */
+.button-regalo-text {
+  font-size: 0.7rem;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* Posiciones específicas */
+.button-regalo.efectivo {
+  bottom: 45%;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  border: none;
+}
+
+.button-regalo.amazon {
+  bottom: 26%;
+  font-size: 0.75rem;
+  border: 1.5px solid #5e5e5e;
+  border-radius: 50px;
+  padding: 0.6rem 2rem;
+  text-decoration: underline;
+}
+
+.button-regalo.liverpool {
+  bottom: 5%;
+  font-size: 0.75rem;
+  border: 1.5px solid #5e5e5e;
+  border-radius: 50px;
+  padding: 0.6rem 2rem;
+  text-decoration: underline;
+}
+
+/* Hover */
+.button-regalo:hover {
+  transform: translate(-50%, 0) scale(1.05);
+  opacity: 0.9;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .button-regalo {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.3rem;
+  }
+
+  .button-regalo.efectivo { bottom: 46%; }
+  .button-regalo.amazon { bottom: 27%; }
+  .button-regalo.liverpool { bottom: 13%; }
+}
+
+@media (min-width: 1024px) {
+  .large-image {
+    width: 60%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+/*fin seccion regalos */
+
+/*musica de fondo */
+/* Contenedor centrado relativo (por ejemplo, dentro del hero) */
+.floating-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+/* Reproductor circular */
+.floating-music-player {
+  width: 70px;
+  height: 70px;
+  background: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.floating-music-player:hover {
+  transform: scale(1.05);
+}
+
+/* Efecto de pulso (centrado horizontal, un poco más abajo) */
+.floating-music-player.pulsing::after {
+  content: '';
+  position: absolute;
+  top: 63%; /* se baja un poco el origen del pulso */
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(149, 118, 92, 0.4);
+  transform: translate(-50%, -50%) scale(0.9);
+  animation: pulse 1.8s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.7;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.7;
+  }
+}
+
+/* Botón principal */
+.player-button {
+  width: 55px;
+  height: 55px;
+  background: none;
+  color: #95765c;
+  border: 2px solid #95765c;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.player-button:hover {
+  color: #fff;
+  background-color: #95765c;
+}
+
+.player-button .fas {
+  font-size: 1.2rem;
+}
+
+
+/*fin musica de fondo */
+
+
+.button-vestimenta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 25px;
+  background-color: #95765c;
+;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+  font-family: jost, sans-serif;
+}
+
+.button-vestimenta:hover {
+  background-color: #95765cee;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .button-vestimenta {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.3rem;
+    bottom: 13%;
+  }
+}
+
+
+.monograma-video-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.monograma-video {
+  width: 250px;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* Pie de página */
+.footer {
+    text-align: center;
+    padding: 1.3rem;    font-size: 0.7rem;
+    color: var(--color-secondary);
+}
+
+/* Pantalla inicio */
+  /* Pantalla de inicio */
+/* Pantalla de inicio */
+  #pantallaInicio {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     background-color: #e9ebe8; /* color de respaldo */
+     background-image: url('./images/fondo-inicio.png'); /* tu imagen */
+  background-size: cover;   /* cubre toda la pantalla */
+  background-position: center; /* centra la imagen */
+  background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Para que el texto esté debajo de la imagen */
+    z-index: 9999;
+    cursor: pointer;
+    transition: opacity 1s ease;
+  }
+
+  .inicio-logo {
+    width: 200px;
+    animation: zoom 2s infinite alternate;
+  }
+
+  @keyframes zoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
+  }
+
+  /* Texto pulsa aquí */
+  .pulsa-text {
+    margin-top: 20px;
+    font-family: 'Jost', sans-serif;
+    font-size: 1.2rem;
+    color: #555;
+    opacity: 0.7;
+    animation: blink 1.5s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+  
+/* fin Pantalla inicio */

@@ -1,0 +1,339 @@
+<!--LILIETH Y JORGE-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lilieth y Jorge</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Feeling+Passionate&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+
+</head>
+<body>
+  
+  <!-- Mensaje para escritorio -->
+  <div id="mensajeEscritorio">
+    <p>Por favor, abre esta página desde tu celular para poder verla correctamente.</p>
+  </div>
+<div id="contenidoCelular">
+  <!-- Pantalla de Inicio -->
+<div id="pantallaInicio">
+  <img src="./images/logo-inicio.png" alt="Logo" class="inicio-logo">
+  <div class="pulsa-text">Pulsa aquí</div>
+</div>
+
+<section class="bienvenida-section">
+  <div class="bienvenida-card">
+    <h1 class="bienvenida-title">¡Bienvenidos a nuestra boda!</h1>
+
+    <div class="monograma-video-container">
+      <video
+        id="monogramaVideo"
+        class="monograma-video"
+        autoplay
+        muted
+        playsinline
+      >
+        <source src="videos/monograma.mp4" type="video/mp4">
+        Tu navegador no soporta video.
+      </video>
+    </div>
+
+    <p class="bienvenida-message">
+      Estamos emocionados de compartir este día tan especial con ustedes.
+      Gracias por ser parte de nuestra historia de amor.
+    </p>
+  </div>
+</section>
+
+  
+    <!-- Hero con Imagen de Fondo -->
+  <section class="hero" id="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Lilieth & Jorge</h1>
+    </div>
+
+  </section>
+<!-- Reproductor flotante -->
+<div class="floating-container">
+    <div id="floating-music-player" class="floating-music-player">
+      <button id="play-pause-button" class="player-button">
+        <i class="fas fa-play"></i>
+      </button>
+      <audio id="wedding-song" src="music/marryme.mp3" loop></audio>
+    </div>
+  </div>
+
+
+
+<section id="countdownWrapper" class="countdown-wrapper">
+  <div class="countdown-section">
+
+    <!-- Imagen separador arriba -->
+    <div class="separator">
+      <img src="./images/separador1.png" alt="Separador">
+    </div>
+
+    <!-- Fecha -->
+    <div class="mensaje-inicial">
+      <h2 class="fecha">13 Diciembre 2025</h2>
+    </div>
+
+    <!-- Título del contador -->
+    <h2 class="section-title animate-on-scroll">Solo Faltan:</h2>
+
+    <!-- Contador -->
+    <div class="countdown">
+      <div class="time-box">
+        <div class="digit" id="days">0</div>
+        <div class="label">Días</div>
+      </div>
+      <div class="time-box">
+        <div class="digit" id="hours">00</div>
+        <div class="label">Horas</div>
+      </div>
+      <div class="time-box">
+        <div class="digit" id="minutes">00</div>
+        <div class="label">Minutos</div>
+      </div>
+      <div class="time-box">
+        <div class="digit" id="seconds">00</div>
+        <div class="label">Segundos</div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Frase de boda abajo -->
+<div class="frase-boda">
+  <p id="fraseBoda"></p>
+</div>
+
+ <h2 class="section-title animate-on-scroll">Nayla y Alejandro</h2>
+
+    <!-- Imagen separador abajo -->
+  <div class="separator">
+    <img src="./images/separador1.png" alt="Separador">
+  </div>
+
+</section>
+
+<section class="imagen-picuda">
+  <div class="overlay"></div>
+  <img src="./images/STD-4009.jpg" alt="Imagen decorativa">
+</section>
+
+<section class="seccion-fondo-estetica">
+  <div class="nombres-container">
+    <div class="novios">
+      <div class="nombre-novio">Nayla Jannely Cantú Guajardo</div>
+      <div class="simbolo">&</div>
+      <div class="nombre-novio">Jesús Alejandro Castillo Galván</div>
+    </div>
+
+    <div class="bendicion">
+      <div class="texto-bendicion">Con la bendición de Dios y de nuestros padres</div>
+      <div class="padres">
+         <strong>Padres de la novia</strong> <br><br>
+        Mario Alberto Cantú Passament <br><br>
+        Narcedalia Guajardo Guajardo<br><br><br>
+        <strong>Padres del novio<br><br></strong> 
+        Jesús Alejandro Castillo Flores<br><br>
+        Ana Patricia Galván González<br>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- ✨ NUEVA SECCIÓN: CELEBRACIÓN ✨ -->
+  <section class="celebracion-section" id="celebracion">
+    <div class="celebracion-card">
+      <h2 class="animateText">Ceremonia Religiosa</h2>
+      <img src="./images/iglesia-negro.png" alt="Ceremonia" class="celebracion-icon-img">
+      <p class="celebracion-lugar">Iglesia de la Santa Cruz</p>
+      <p class="celebracion-detalles">
+        Sta. Cruz, 67000 Gral. Bravo, N.L.
+      </p>
+      <p class="celebracion-hora">Hora: 18:00 hrs</p>
+      <a href="https://maps.app.goo.gl/diHsyX2G9sF4Xtni7?g_st=ipc" class="celebracion-btn">Ver Ubicación</a>
+    </div>
+  </section>
+
+  <section>
+      &nbsp; 
+    <br>
+    &nbsp;
+  </section>
+
+   <!-- ✨ NUEVA SECCIÓN: recepcion ✨ -->
+  <section class="celebracion-sectionrec" id="celebracionrec">
+    <div class="celebracion-cardrec">
+      <h2 class="animateTextrec">Recepción</h2>
+      <img src="./images/copasnegro.png" alt="Ceremonia" class="celebracion-icon-img">
+      <p class="celebracion-lugarrec">Casino Municipal <br> Gral. Bravo</p>
+      <p class="celebracion-detallesrec">
+        5 de Mayo SN-S, 67000 Gral. Bravo, N.L.
+      </p>
+      <p class="celebracion-horarec">Hora: 19:30 hrs</p>
+      <a href="https://maps.app.goo.gl/CYSt8dGQUPttFrMv8?g_st=ipc" class="celebracion-btnrec">Ver Ubicación</a>
+    </div>
+  </section>
+
+  <section class="itinerario-section">
+  <h2 class="itinerario-title">Itinerario</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="circle"><img src="./images/iglesia.png" alt="Conferencia Bíblica"></div>
+      <div class="content">
+        <h3>Ceremonia religiosa</h3>
+        <p>18:00 hrs</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="circle"><img src="./images/copas.png" alt="Recepción"></div>
+      <div class="content">
+        <h3>Recepción</h3>
+        <p>19:30 hrs</p>
+      </div>
+    </div>
+</section>
+
+  
+  <!-- Carrusel de Fotos -->
+<section class="carousel-section">
+  <div class="carousel">
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="./images/STD-5257.jpg" alt="Foto 1"></div>
+      <div class="carousel-slide"><img src="./images/STD-3796.jpg" alt="Foto 2"></div>
+      <div class="carousel-slide"><img src="./images/portada.jpg" alt="Foto 3"></div>
+      <div class="carousel-slide"><img src="./images/STD-4103.jpg" alt="Foto 4"></div>
+      <div class="carousel-slide"><img src="./images/STD-5074.jpg" alt="Foto 5"></div>
+      <div class="carousel-slide"><img src="./images/STD-6389.jpg" alt="Foto 6"></div>
+
+    </div>
+    <div class="carousel-indicators"></div>
+  </div>
+</section>
+
+<section class="invitacion-section">
+  <div class="invitacion-card">
+    <p><span id="nombre">Cargando...</span></p>
+    <p class="pases-line">
+      <strong>PASES ASIGNADOS:</strong> <span id="personas">Cargando...</span>
+    </p>
+  </div>
+</section>
+
+<!-- CODIGO DE VESTIMENTA -->
+<section class="noninos">
+  <h2>Sabemos que los niños alegran cualquier día, pero esta noche queremos que los adultos disfruten al máximo.
+</h2>
+  <p class="tipo">No niños, por favor.</p>
+</section>
+
+<!-- FORMS -->
+<section class="rsvp-section" id="confirmacion">
+  <form class="rsvp-form" id="rsvpForm">
+    <p>&nbsp;<br> &nbsp; <br> &nbsp;</p>
+
+    <!-- Input oculto para ID de invitado -->
+    <input type="hidden" name="entry.993025194" id="idInvitadoHidden">
+
+    <!-- Nombre -->
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="entry.1850873592" id="nombreforms" required>
+
+    <!-- Teléfono -->
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" name="entry.1902016643" id="telefono" required pattern="[0-9]{10}" />
+
+    <!-- Asistencia -->
+    <label>¿Asistirás?</label>
+    <label><input type="radio" name="entry.207305379" value="Sí"> Sí</label>
+    <label><input type="radio" name="entry.207305379" value="No"> No</label>
+
+    <!-- Acompañantes -->
+    <label for="acompanantes">Número de confirmados:</label>
+    <select name="acompanantesVisible" id="acompanantes" required>
+      <option value="1">1</option>
+    </select>
+    <input type="hidden" name="entry.1055150468" id="acompanantesHidden">
+
+    <!-- Comentarios -->
+    <label for="comentarios">Comentarios:</label>
+    <textarea name="entry.404057514" id="comentarios" rows="3"></textarea>
+
+    <button type="submit">Enviar Confirmación</button>
+  </form>
+
+  <p id="mensaje" style="color:#6a5b1e; text-align:center; margin-top:10px;"></p>
+</section>
+
+
+<!-- mesa de regalo -->
+<section class="image-section-invitacion">
+  <div class="image-button-container">
+    <img src="https://mideldigital.com/naylayale/images/REGALOS.png" alt="Mesa de Regalos" class="large-image">
+
+    <!-- Botón 3: Liverpool -->
+    <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51713086" target="_blank" class="button-regalo liverpool">
+      Mesa de regalos
+    </a>
+  </div>
+</section>
+
+<!-- mesa de regalo -->
+<section class="image-section-invitacion">
+  <div class="image-button-container">
+    <img src="https://mideldigital.com/naylayale/images/VESTIMENTA.png" 
+     alt="Mesa de Regalos" 
+     class="large-image" >
+
+
+    <!-- Botón 3: Liverpool -->
+    <a href="https://pin.it/12g823X8Q" target="_blank" class="button-vestimenta">
+      Ver inspiración
+    </a>
+  </div>
+</section>
+
+<section class="galeria">
+  <div class="galeria-grid">
+    <div class="galeria-item"><img src="./images/STD-4748.jpg" alt="Imagen 4"></div>
+    <div class="galeria-item"><img src="./images/STD-5012.jpg" alt="Imagen 1"></div>   
+    <div class="galeria-item"><img src="./images/STD-5767.jpg" alt="Imagen 2"></div>
+    
+    <div class="galeria-item"><img src="./images/STD-6278.jpg" alt="Imagen 3"></div>
+    <div class="galeria-item"><img src="./images/STD-5934.jpg" alt="Imagen 3"></div>
+    <div class="galeria-item"><img src="./images/STD-4892.jpg" alt="Imagen 3"></div>
+    <div class="galeria-item"><img src="./images/STD-5846.jpg" alt="Imagen 2"></div>
+    <!-- agrega más imágenes según necesites -->
+  </div>
+</section>
+
+
+  <!-- Frase de boda abajo -->
+<div class="frase-boda-final">
+  <h2>Nos encantaría contar con tu presencia para celebrar juntos este día lleno de amor, alegría y momentos inolvidables</h2>
+  <p>TE ESPERAMOS</p>
+
+</div>
+ <footer class="footer">
+        <p>© 2025 MidelDigital</p>
+    </footer>
+
+
+  <script src="script.js" defer></script>
+  </div>
+</body>
+</html>
