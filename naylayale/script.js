@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===== Invitado desde JSON =====
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
-  fetch("https://raw.githubusercontent.com/lilimidel/data-updates/main/naylayale/invitados.json")
+  fetch("https://raw.githubusercontent.com/mdl-inv/data-updates/main/naylayale/invitados.json")
     .then(res=>res.json())
     .then(data=>{
       invitado = data.find(item=>item.id==id);
