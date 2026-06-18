@@ -5,7 +5,7 @@ body, html {
   overflow-x: hidden;
   font-family: 'Segoe UI', sans-serif;
   scroll-behavior: smooth;
-  background-color: #e9ebe8;
+  background-color: #ffffff;
 }
 
  /* Contenedor principal */
@@ -48,7 +48,7 @@ body, html {
   position: relative;
   height: 70vh; /* menos alto que 100vh */
   max-height: 600px; /* opcional para pantallas grandes */
-  background: url('https://mideldigital.com/naylayale/images/STD-4714.jpg') center/cover no-repeat;
+  background: url('./images/DSC09746.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
