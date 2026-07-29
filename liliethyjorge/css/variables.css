@@ -1,0 +1,68 @@
+/* ==========================================================================
+   VARIABLES.CSS
+   Sistema de diseño — Invitación Lilieth & Jorge
+   Todas las decisiones de color, tipografía y espaciado viven aquí.
+   ========================================================================== */
+
+:root {
+  /* Color */
+  --color-white: #ffffff;
+  --color-off-white: #faf9f7;
+  --color-ink: #0a0a0a;
+  --color-graphite: #3d3d3d;
+  --color-graphite-soft: #6b6b6b;
+  --color-accent-blue: #1b3a6b;
+  --color-accent-blue-soft: #1b3a6b1a; /* 10% opacidad para washes */
+  --color-hairline: #e4e2dd;
+  --color-overlay: rgba(10, 10, 10, 0.55);
+
+  /* Tipografía */
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Inter", sans-serif;
+
+  --fs-hero: clamp(2.6rem, 11vw, 3.6rem);
+  --fs-h1: clamp(2.1rem, 8vw, 2.6rem);
+  --fs-h2: clamp(1.6rem, 6vw, 2rem);
+  --fs-eyebrow: 0.72rem;
+  --fs-body: 1rem;
+  --fs-small: 0.85rem;
+
+  --tracking-wide: 0.18em;
+  --tracking-mid: 0.08em;
+
+  --lh-display: 1.15;
+  --lh-body: 1.6;
+
+  /* Espaciado */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 64px;
+  --space-2xl: 96px;
+
+  --gutter: 28px; /* margen lateral fijo de toda la experiencia */
+
+  /* Movimiento */
+  --ease-signature: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.16, 0.84, 0.44, 1);
+  --dur-fast: 0.4s;
+  --dur-mid: 0.9s;
+  --dur-slow: 1.6s;
+
+  /* Capas */
+  --z-menu: 50;
+  --z-music: 45;
+  --z-intro: 100;
+  --z-popup: 80;
+
+  /* Radios / bordes */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --hairline-w: 1px;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* La invitación se mantiene con fondo claro siempre por diseño,
+     no se invierte con modo oscuro del sistema. */
+}

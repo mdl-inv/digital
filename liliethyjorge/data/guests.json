@@ -1,0 +1,14 @@
+{
+  "carlos-hernandez": {
+    "nombre": "Carlos Hernández",
+    "personas": 2
+  },
+  "ana-lopez": {
+    "nombre": "Ana López",
+    "personas": 1
+  },
+  "familia-ramirez": {
+    "nombre": "Familia Ramírez",
+    "personas": 4
+  }
+}

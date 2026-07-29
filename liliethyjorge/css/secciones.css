@@ -1,0 +1,286 @@
+/* ==========================================================================
+   SECCIONES.CSS
+   Estilos compartidos y específicos de cada escena de contenido.
+   ========================================================================== */
+
+/* ---- Bienvenida al invitado ---- */
+.bienvenida {
+  text-align: center;
+  padding: var(--space-sm) var(--gutter) 0;
+}
+
+.bienvenida__label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.bienvenida__nombre {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--color-accent-blue);
+}
+
+/* ---- Hero / Inicio ---- */
+.hero {
+  min-height: 100svh;
+}
+
+.hero__logo-slot {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__logo-slot svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero__media {
+  margin: 0 var(--gutter) var(--space-lg);
+}
+
+.hero__nombres {
+  font-size: var(--fs-hero);
+  text-align: center;
+}
+
+.hero__amp {
+  display: block;
+  font-style: italic;
+  color: var(--color-accent-blue);
+  font-size: 0.5em;
+  margin: 4px 0;
+}
+
+.hero__fecha {
+  text-align: center;
+  margin-top: var(--space-sm);
+}
+
+/* ---- Nuestra historia ---- */
+.historia__item {
+  padding: var(--space-lg) var(--gutter);
+}
+
+.historia__year {
+  font-size: var(--fs-eyebrow);
+  color: var(--color-accent-blue);
+  letter-spacing: var(--tracking-wide);
+}
+
+/* ---- Cuenta regresiva ---- */
+.cuenta-regresiva {
+  text-align: center;
+}
+
+.cuenta-regresiva__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+  padding: 0 var(--gutter);
+}
+
+.cuenta-regresiva__unidad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.cuenta-regresiva__numero {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 8vw, 2.4rem);
+  font-variant-numeric: tabular-nums;
+}
+
+.cuenta-regresiva__linea {
+  width: 100%;
+  height: 60px;
+  margin: var(--space-lg) 0 0;
+}
+
+/* ---- Ceremonia / Recepción (tarjetas) ---- */
+.evento-card {
+  padding: var(--space-lg) var(--gutter);
+  text-align: center;
+}
+
+.evento-card__icono {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto var(--space-sm);
+}
+
+/* ---- Cronograma ---- */
+.cronograma__item {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--gutter);
+  align-items: baseline;
+}
+
+.cronograma__hora {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-accent-blue);
+  font-size: 1.1rem;
+}
+
+/* ---- Código de vestimenta ---- */
+.vestimenta__paleta {
+  display: flex;
+  gap: var(--space-xs);
+  justify-content: center;
+  margin-top: var(--space-md);
+}
+
+.vestimenta__swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: var(--hairline-w) solid var(--color-hairline);
+}
+
+/* ---- Galería ---- */
+.galeria__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  padding: 0 var(--gutter);
+}
+
+.galeria__grid .media-frame:nth-child(3n) {
+  grid-column: span 2;
+  aspect-ratio: 16 / 10;
+}
+
+/* ---- Mesa de regalos ---- */
+.regalos__opciones {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: 0 var(--gutter);
+}
+
+.regalos__opcion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) 0;
+  border-bottom: var(--hairline-w) solid var(--color-hairline);
+}
+
+/* ---- Hoteles ---- */
+.hoteles__lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: 0 var(--gutter);
+}
+
+.hotel-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-md) 0;
+  border-bottom: var(--hairline-w) solid var(--color-hairline);
+  text-align: left;
+}
+
+.hotel-trigger__nombre {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+/* ---- Mapa ---- */
+.mapa__frame {
+  margin: 0 var(--gutter);
+  aspect-ratio: 4 / 3;
+  border: var(--hairline-w) solid var(--color-hairline);
+  overflow: hidden;
+}
+
+.mapa__frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---- FAQ ---- */
+.faq__item {
+  border-bottom: var(--hairline-w) solid var(--color-hairline);
+}
+
+.faq__pregunta {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) var(--gutter);
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+.faq__signo {
+  font-size: 1.2rem;
+  color: var(--color-accent-blue);
+  transition: transform var(--dur-fast) var(--ease-soft);
+}
+
+.faq__item.is-open .faq__signo {
+  transform: rotate(45deg);
+}
+
+.faq__respuesta {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 var(--gutter);
+  transition: max-height var(--dur-mid) var(--ease-signature);
+}
+
+.faq__respuesta p {
+  padding-bottom: var(--space-md);
+}
+
+/* ---- Mensaje final ---- */
+.mensaje-final {
+  text-align: center;
+}
+
+.mensaje-final__firma {
+  margin-top: var(--space-lg);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.4rem;
+}
+
+/* ---- Footer ---- */
+.footer {
+  text-align: center;
+  padding: var(--space-xl) var(--gutter) calc(var(--space-2xl) + 60px);
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+.footer__nombres {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.6rem;
+  margin-bottom: var(--space-sm);
+}
+
+.footer__credito {
+  margin-top: var(--space-lg);
+  font-size: 0.75rem;
+  color: var(--color-graphite-soft);
+  letter-spacing: var(--tracking-mid);
+}

@@ -1,0 +1,78 @@
+/* ==========================================================================
+   INTRO.CSS
+   Pantalla inicial en blanco, sin botones. Toda la pantalla es tocable.
+   La animación de apertura usa fragmentos SVG que se separan/revelan,
+   nunca una metáfora de sobre o carta.
+   ========================================================================== */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-intro);
+  background: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.intro__hint {
+  position: absolute;
+  bottom: var(--space-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-graphite-soft);
+  opacity: 0;
+  animation: intro-hint-fade 2.4s ease-in-out 0.6s forwards;
+}
+
+@keyframes intro-hint-fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.intro__monogram {
+  position: relative;
+  width: 46vw;
+  max-width: 200px;
+}
+
+.intro__monogram svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Cada fragmento del monograma se anima por separado desde JS (GSAP),
+   estos estilos solo definen el estado de reposo antes de tocar. */
+.intro__fragment {
+  transform-origin: center;
+}
+
+/* Paneles que cubren la pantalla y se separan al tocar */
+.intro__panel {
+  position: fixed;
+  inset: 0;
+  background: var(--color-off-white);
+  z-index: calc(var(--z-intro) - 1);
+}
+
+.intro__panel--left {
+  right: 50%;
+}
+
+.intro__panel--right {
+  left: 50%;
+}
+
+.intro.is-closing {
+  pointer-events: none;
+}
+
+body.intro-active {
+  overflow: hidden;
+  height: 100svh;
+}
