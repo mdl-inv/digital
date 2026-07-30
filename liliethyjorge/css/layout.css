@@ -5,8 +5,8 @@
 
 .container {
   width: 100%;
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* Cada <section> es una "escena" de la experiencia.
@@ -35,6 +35,8 @@
   width: 100%;
   padding-top: var(--space-2xl);
   padding-bottom: var(--space-2xl);
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .escena__header {

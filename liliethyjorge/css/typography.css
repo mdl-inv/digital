@@ -62,6 +62,7 @@ h2,
 .split-char {
   display: inline-block;
   will-change: transform, opacity;
+  font-family: 'Cinzel', serif;
 }
 
 .split-line {

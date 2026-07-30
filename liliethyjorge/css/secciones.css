@@ -29,15 +29,16 @@
 }
 
 .hero .escena__inner {
-  padding-top: 2rem;
+  padding-top: 1rem;
   position: relative;
   z-index: 60;
 }
 
 .hero__logo-slot {
-  width: 96px;
-  height: 96px;
-  margin: 0 auto 0.35rem;
+  width: min(36vw, 180px);
+  max-width: 180px;
+  height: auto;
+  margin: 0 auto 0.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,10 +46,11 @@
   transform-origin: center center;
 }
 
-.hero__logo-slot svg {
+.hero__logo-slot img {
+  display: block;
   width: 100%;
-  height: 100%;
-  overflow: visible;
+  height: auto;
+  object-fit: contain;
 }
 
 .hero__logo-trazo {
@@ -98,7 +100,11 @@
 
 .hero__nombres {
   font-size: var(--fs-hero);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
   text-align: center;
+  margin: 0 auto;
+  max-width: min(100%, 420px);
 }
 
 .hero__amp {
@@ -114,7 +120,71 @@
   margin-top: var(--space-sm);
 }
 
+@media (max-width: 480px) {
+  .hero__nombres {
+    font-size: clamp(2rem, 8.8vw, 2.7rem);
+    line-height: 0.9;
+    max-width: min(100%, 300px);
+    padding: 0 0.25rem;
+  }
+
+  .hero__amp {
+    font-size: 0.68em;
+    margin: 6px 0;
+  }
+
+  .hero__fecha {
+    font-size: 0.7rem;
+    padding: 0 1rem;
+  }
+}
+
 /* ---- Nuestra historia ---- */
+#historia {
+  background: var(--color-off-white);
+  justify-content: flex-start;
+}
+
+#historia .escena__inner {
+  padding-top: 0;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.historia__intro {
+  width: 100vw;
+  margin: 0 0 var(--space-lg);
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 0;
+}
+
+.historia__intro-inner {
+  max-width: min(100%, 900px);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  background: #0a0a0a;}
+
+.historia__intro .cuenta-regresiva {
+  margin: 0;
+  padding: clamp(1.4rem, 3.2vw, 2rem) var(--gutter);
+  background: #0a0a0a;
+  color: var(--color-white);
+  border-radius: 0;
+}
+
+.historia__intro .eyebrow,
+.historia__intro h2,
+.historia__intro .label-small,
+.historia__intro .cuenta-regresiva__numero,
+.historia__intro .cuenta-regresiva__unidad {
+  color: var(--color-white);
+}
+
+.historia__intro .cuenta-regresiva__linea path {
+  stroke: var(--color-white);
+}
+
 .historia__timeline {
   position: relative;
   padding-left: var(--space-md);
@@ -149,21 +219,26 @@
 
 /* ---- Cuenta regresiva ---- */
 .cuenta-regresiva {
-  text-align: center;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  margin: 0 0 var(--space-lg);
+  padding: 0;
 }
 
 .cuenta-regresiva__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-sm);
-  margin-top: var(--space-lg);
-  padding: 0 var(--gutter);
+  margin-top: var(--space-md);
+  padding: 0;
+  max-width: min(100%, 360px);
 }
 
 .cuenta-regresiva__unidad {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 6px;
 }
 
@@ -174,9 +249,9 @@
 }
 
 .cuenta-regresiva__linea {
-  width: 100%;
-  height: 60px;
-  margin: var(--space-lg) 0 0;
+  width: min(100%, 280px);
+  height: 48px;
+  margin: var(--space-sm) 0 0;
 }
 
 /* ---- Ceremonia / Recepción (tarjetas) ---- */
