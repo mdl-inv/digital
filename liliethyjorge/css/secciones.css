@@ -99,20 +99,23 @@
 }
 
 .hero__nombres {
+  display: inline-block;
   font-size: var(--fs-hero);
   line-height: 0.95;
   letter-spacing: 0.01em;
   text-align: center;
   margin: 0 auto;
   max-width: min(100%, 420px);
+  white-space: nowrap;
 }
 
 .hero__amp {
-  display: block;
+  display: inline-block;
   font-style: italic;
   color: var(--color-accent-blue);
   font-size: 0.5em;
-  margin: 4px 0;
+  margin: 0 0.15em;
+  vertical-align: middle;
 }
 
 .hero__fecha {
@@ -122,20 +125,41 @@
 
 @media (max-width: 480px) {
   .hero__nombres {
-    font-size: clamp(2rem, 8.8vw, 2.7rem);
+    font-size: clamp(1.55rem, 7.2vw, 2.1rem);
     line-height: 0.9;
-    max-width: min(100%, 300px);
-    padding: 0 0.25rem;
+    max-width: min(100%, 240px);
+    padding: 0;
+    letter-spacing: 0.001em;
+    word-break: keep-all;
   }
 
   .hero__amp {
-    font-size: 0.68em;
-    margin: 6px 0;
+    font-size: 0.64em;
+    margin: 0 0.08em;
   }
 
   .hero__fecha {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
+    line-height: 1.4;
     padding: 0 1rem;
+    margin-top: 0.6rem;
+  }
+
+  .hero__media {
+    width: 100%;
+    max-width: none;
+    margin: 0 0 var(--space-sm);
+  }
+
+  .hero__media--centered {
+    padding: 0;
+    margin-top: 0;
+  }
+
+  .hero__media--centered img {
+    width: 100%;
+    max-width: none;
+    height: auto;
   }
 }
 
@@ -163,9 +187,9 @@
   max-width: min(100%, 900px);
   margin: 0 auto;
   padding: 0 var(--gutter);
-  background: #0a0a0a;}
+}
 
-.historia__intro .cuenta-regresiva {
+.historia__intro-banner {
   margin: 0;
   padding: clamp(1.4rem, 3.2vw, 2rem) var(--gutter);
   background: #0a0a0a;
@@ -173,16 +197,26 @@
   border-radius: 0;
 }
 
-.historia__intro .eyebrow,
-.historia__intro h2,
-.historia__intro .label-small,
-.historia__intro .cuenta-regresiva__numero,
-.historia__intro .cuenta-regresiva__unidad {
+.historia__intro-banner .eyebrow,
+.historia__intro-banner h2,
+.historia__intro-banner .label-small,
+.historia__intro-banner .cuenta-regresiva__numero,
+.historia__intro-banner .cuenta-regresiva__unidad {
   color: var(--color-white);
 }
 
-.historia__intro .cuenta-regresiva__linea path {
+.historia__intro-banner .cuenta-regresiva__linea path {
   stroke: var(--color-white);
+}
+
+.historia__contador {
+  max-width: min(100%, 900px);
+  margin: calc(var(--space-md) + 4px) auto 0;
+  padding: 0 var(--gutter);
+}
+
+.historia__contador .cuenta-regresiva__linea path {
+  stroke: var(--color-accent-blue);
 }
 
 .historia__timeline {
