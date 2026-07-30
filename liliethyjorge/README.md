@@ -25,7 +25,7 @@ del navegador de escritorio, simulando 390–430px de ancho).
 
 | Elemento | Ubicación | Notas |
 |---|---|---|
-| Logotipo | `index.html`, bloque `.hero__logo-slot` | Reemplaza el SVG de ejemplo por tu logo (SVG o `<img>`) |
+| Logotipo | `index.html`, bloques `.intro__monogram` y `.hero__logo-slot` | Ya está vectorizado a partir del logo real (ver abajo); solo edítalo si cambias de diseño |
 | Foto principal | `assets/images/hero.webp` | Usa el mismo nombre de archivo o actualiza la ruta en `index.html` |
 | Fotos de "Nuestra historia" | `assets/images/historia-1.webp`, `-2`, `-3` | |
 | Fotos de galería | `assets/images/galeria-1.webp` … `-6.webp` | |
@@ -41,6 +41,32 @@ del navegador de escritorio, simulando 390–430px de ancho).
 `https://tu-dominio/?id=carlos-hernandez` — el `id` debe existir como llave en
 `data/guests.json`. Si no hay `id` en la URL o no coincide con ninguno, se
 muestra un saludo genérico y el RSVP permite 1 persona por defecto.
+
+## El logotipo
+
+El logo que enviaste (`assets/images/logo-original.png`) se vectorizó (contornos
+extraídos con visión por computadora) para poder animarlo como trazo real, no
+como una simple imagen. El path resultante vive inline en `index.html` en dos
+lugares: la intro (`#intro-logo-trazo` / `#intro-logo-relleno`) y el logo del
+hero (`#hero-logo-trazo` / `#hero-logo-relleno`). `js/utils/animaciones.js`
+expone `dibujarLogo()`, que primero traza el contorno y luego aparece el
+relleno — así se ve "formándose" en vez de aparecer de golpe. Si más adelante
+cambias de logotipo, tendrás que volver a generar el path (o usar un SVG
+vectorial que ya tengas) y reemplazar el atributo `d` en ambos lugares.
+
+## El menú
+
+Es una barra fija arriba (marca + ícono de tres líneas). Al tocar el ícono se
+abre un drawer de pantalla completa con la lista de secciones, animado con
+GSAP (fade + stagger). La barra se oculta al bajar y reaparece al subir
+(`js/menu.js`), y nunca se oculta mientras el drawer está abierto.
+
+## Animaciones al hacer scroll
+
+Todas las revelaciones (`data-reveal`, historia, cronograma, mapa, etc.) están
+configuradas con `toggleActions: "play reverse play reverse"`: se animan al
+entrar en pantalla tanto subiendo como bajando, y se revierten al salir del
+viewport en cualquier dirección — no son de una sola vez.
 
 ## Estructura
 

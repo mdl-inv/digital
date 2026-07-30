@@ -23,7 +23,8 @@ export function inicializarCronograma() {
     scrollTrigger: {
       trigger: lista,
       start: "top 80%",
-      once: true,
+      end: "bottom 20%",
+      toggleActions: "play reverse play reverse",
     },
   });
 }

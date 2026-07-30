@@ -19,7 +19,8 @@ export function inicializarCeremonia() {
       scrollTrigger: {
         trigger: tarjeta,
         start: "top 75%",
-        once: true,
+        end: "bottom 25%",
+        toggleActions: "play reverse play reverse",
       },
     })
       .to(icono, { opacity: 1, scale: 1, duration: 0.6, ease: EASE_SOFT })

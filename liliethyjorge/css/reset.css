@@ -13,11 +13,13 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: auto; /* Lenis controla el scroll suave, no CSS */
+  overscroll-behavior-y: none;
 }
 
 body {
   min-height: 100svh;
   overflow-x: hidden;
+  overscroll-behavior-y: none;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }

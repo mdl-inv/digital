@@ -1,26 +1,40 @@
 /**
  * intro.js
  * Pantalla inicial en blanco, totalmente tocable (sin botón "comenzar").
- * Al primer toque, los fragmentos del monograma y los paneles laterales
- * se separan/reacomodan como si la experiencia estuviera ensamblándose,
- * y de ahí pasa automáticamente al contenido. Dura ~2 segundos.
+ * Apenas carga, el logotipo real se dibuja a sí mismo (trazo + relleno)
+ * y luego aparece el texto "toca para continuar". Al tocar, el logo y el
+ * hint se desvanecen mientras los paneles se separan hacia los costados
+ * revelando el contenido. Toda la secuencia de cierre dura ~2 segundos.
  */
 
-import { gsap, EASE_SIGNATURE } from "./utils/animaciones.js";
+import { gsap, EASE_SIGNATURE, EASE_SOFT, dibujarLogo } from "./utils/animaciones.js";
 
-const DURACION_TOTAL = 2; // segundos, según el brief
+const DURACION_CIERRE = 2; // segundos, según el brief
 
 export function inicializarIntro({ onFinalizar, onPrimerToque } = {}) {
   const intro = document.getElementById("intro");
-  const fragmentos = intro.querySelectorAll("[data-fragment]");
   const paneles = intro.querySelectorAll("[data-panel]");
   const hint = intro.querySelector(".intro__hint");
+  const monogram = intro.querySelector(".intro__monogram");
+  const trazos = intro.querySelectorAll(".intro__logo-trazo");
+  const pathRelleno = document.getElementById("intro-logo-relleno");
 
   let yaActivado = false;
 
-  function reproducirCierre() {
+  // 1. El logo se va "escribiendo" trazo por trazo apenas se muestra la pantalla.
+  dibujarLogo(trazos, pathRelleno, {
+    onComplete: () => {
+      gsap.to(hint, { opacity: 1, duration: 0.8, ease: EASE_SOFT });
+    },
+  });
+
+  function reproducirCierre(evento) {
     if (yaActivado) return;
     yaActivado = true;
+
+    // Evita que el navegador interprete el toque/arrastre inicial como un
+    // gesto nativo de "pull-to-refresh", que recargaba la página.
+    if (evento && evento.cancelable) evento.preventDefault();
 
     intro.classList.add("is-closing");
 
@@ -35,32 +49,18 @@ export function inicializarIntro({ onFinalizar, onPrimerToque } = {}) {
       },
     });
 
-    tl.to(hint, { opacity: 0, duration: 0.25 }, 0);
+    tl.to(hint, { opacity: 0, duration: 0.3 }, 0);
 
-    // Los fragmentos del monograma se separan levemente antes de disolverse,
-    // dando la sensación de piezas que se sueltan (no un sobre que se abre).
-    fragmentos.forEach((fragmento, i) => {
-      const anguloX = (Math.random() - 0.5) * 220;
-      const anguloY = (Math.random() - 0.5) * 220;
-      tl.to(
-        fragmento,
-        {
-          x: anguloX,
-          y: anguloY,
-          rotate: (Math.random() - 0.5) * 60,
-          opacity: 0,
-          duration: 0.9,
-        },
-        i * 0.04
-      );
-    });
+    // El logo ya formado se retira con un desvanecimiento y un leve
+    // escalado, como si terminara de "cobrar vida" y diera paso al resto.
+    tl.to(
+      monogram,
+      { opacity: 0, scale: 0.94, duration: 0.7 },
+      0.05
+    );
 
     // Los paneles se separan hacia los costados, revelando el contenido detrás.
-    tl.to(
-      paneles[0],
-      { xPercent: -100, duration: 1.1 },
-      0.15
-    ).to(
+    tl.to(paneles[0], { xPercent: -100, duration: 1.1 }, 0.15).to(
       paneles[1],
       { xPercent: 100, duration: 1.1 },
       0.15
@@ -69,7 +69,7 @@ export function inicializarIntro({ onFinalizar, onPrimerToque } = {}) {
     tl.to(intro, { opacity: 0, duration: 0.4 }, ">-0.3");
 
     // Aseguramos que la duración total ronde los 2 segundos del brief.
-    tl.duration(DURACION_TOTAL);
+    tl.duration(DURACION_CIERRE);
   }
 
   intro.addEventListener("pointerdown", reproducirCierre, { once: true });

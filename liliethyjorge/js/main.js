@@ -13,7 +13,7 @@ import { inicializarMenu, mostrarMenu } from "./menu.js";
 import { inicializarMusica, activarMusicaTrasPrimerToque } from "./musica.js";
 import { inicializarLenis } from "./lenis-setup.js";
 import { inicializarLazyLoad } from "./utils/lazyload.js";
-import { inicializarRevelados } from "./utils/animaciones.js";
+import { inicializarRevelados, dibujarLogo } from "./utils/animaciones.js";
 
 import { inicializarHistoria } from "./secciones/historia.js";
 import { inicializarCuentaRegresiva } from "./secciones/cuentaRegresiva.js";
@@ -57,6 +57,14 @@ function inicializarExperiencia() {
 
   // 6. Revelados genéricos declarados en el HTML ([data-reveal], [data-split])
   inicializarRevelados();
+
+  // El logo del hero se dibuja igual que en la intro (trazo + relleno),
+  // apenas comienza la experiencia — es la primera sección visible.
+  const heroTrazo = document.getElementById("hero-logo-trazo");
+  const heroRelleno = document.getElementById("hero-logo-relleno");
+  if (heroTrazo && heroRelleno) {
+    dibujarLogo(heroTrazo, heroRelleno, { delay: 0.3 });
+  }
 
   // 7. Lógica específica de cada sección
   inicializarHistoria();

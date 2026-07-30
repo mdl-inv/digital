@@ -1,64 +1,169 @@
 /* ==========================================================================
    MENU.CSS
-   Menú fijo, minimalista, siempre visible. No es un navbar tradicional:
-   es una línea delgada de labels que se desplaza horizontalmente y resalta
-   la sección activa vía ScrollTrigger.
+   Barra fija arriba, minimalista: marca + ícono. El ícono abre un drawer
+   de pantalla completa con la lista de secciones. La barra se oculta al
+   bajar y reaparece al subir (ver js/menu.js).
    ========================================================================== */
 
 .menu {
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
   z-index: var(--z-menu);
-  background: linear-gradient(to top, var(--color-white) 60%, transparent);
-  padding: var(--space-sm) 0 var(--space-md);
-  pointer-events: none; /* solo la lista interna recibe toques */
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity var(--dur-mid) var(--ease-signature), transform var(--dur-mid) var(--ease-signature);
 }
 
-.menu.is-visible {
+.menu__bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--gutter);
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: var(--hairline-w) solid transparent;
+  transition: transform var(--dur-mid) var(--ease-signature),
+    border-color var(--dur-fast) var(--ease-soft),
+    opacity var(--dur-mid) var(--ease-signature);
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.menu.is-visible .menu__bar {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-.menu__track {
-  display: flex;
-  gap: var(--space-md);
-  overflow-x: auto;
-  padding: 0 var(--gutter);
-  scrollbar-width: none;
+.menu.is-hidden .menu__bar {
+  transform: translateY(-100%);
 }
 
-.menu__track::-webkit-scrollbar {
-  display: none;
+.menu__bar.has-scrolled {
+  border-color: var(--color-hairline);
+}
+
+.menu__brand {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  color: var(--color-ink);
+}
+
+/* ---- Ícono: tres líneas que se transforman en una X ---- */
+.menu__toggle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  pointer-events: auto;
+}
+
+.menu__toggle-line {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--color-ink);
+  transition: transform var(--dur-fast) var(--ease-signature),
+    opacity var(--dur-fast) var(--ease-signature),
+    width var(--dur-fast) var(--ease-signature);
+}
+
+.menu__toggle-line:nth-child(2) {
+  width: 16px;
+  align-self: flex-end;
+}
+
+.menu.is-open .menu__toggle-line {
+  width: 22px;
+}
+
+.menu.is-open .menu__toggle-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu.is-open .menu__toggle-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(6px);
+}
+
+.menu.is-open .menu__toggle-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---- Drawer de pantalla completa ---- */
+.menu__drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: var(--color-white);
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--gutter);
+  padding-top: 72px; /* deja libre el alto de la barra */
+}
+
+.menu.is-open .menu__drawer {
+  pointer-events: auto;
+}
+
+.menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.menu__list-item {
+  overflow: hidden;
 }
 
 .menu__item {
-  flex: 0 0 auto;
-  font-size: var(--fs-eyebrow);
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
-  color: var(--color-graphite-soft);
-  padding-bottom: 6px;
-  border-bottom: var(--hairline-w) solid transparent;
-  transition: color var(--dur-fast) var(--ease-soft), border-color var(--dur-fast) var(--ease-soft);
-  white-space: nowrap;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--color-graphite);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: color var(--dur-fast) var(--ease-soft);
+  padding-bottom: var(--space-xs);
+  border-bottom: var(--hairline-w) solid var(--color-hairline);
+}
+
+.menu__item-num {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.7rem;
+  letter-spacing: var(--tracking-mid);
+  color: var(--color-hairline);
+  transition: color var(--dur-fast) var(--ease-soft);
 }
 
 .menu__item.is-active {
   color: var(--color-accent-blue);
-  border-color: var(--color-accent-blue);
+}
+
+.menu__item.is-active .menu__item-num {
+  color: var(--color-accent-blue);
 }
 
 /* ---- Botón de música ---- */
 .music-toggle {
   position: fixed;
   right: var(--gutter);
-  bottom: 84px;
+  bottom: var(--space-md);
   z-index: var(--z-music);
   width: 40px;
   height: 40px;

@@ -20,7 +20,8 @@ export function inicializarMapa() {
     scrollTrigger: {
       trigger: marco,
       start: "top 80%",
-      once: true,
+      end: "bottom 20%",
+      toggleActions: "play reverse play reverse",
     },
   });
 }
