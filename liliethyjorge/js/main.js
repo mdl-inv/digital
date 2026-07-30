@@ -9,9 +9,9 @@
 
 import { obtenerInvitadoActual, aplicarInvitadoAlDOM } from "./guest.js";
 import { inicializarIntro } from "./intro.js";
-import { inicializarMenu, mostrarMenu } from "./menu.js";
+import { inicializarMenu } from "./menu.js";
 import { inicializarMusica, activarMusicaTrasPrimerToque } from "./musica.js";
-import { inicializarLenis } from "./lenis-setup.js";
+import { inicializarLenis, obtenerLenis } from "./lenis-setup.js";
 import { inicializarLazyLoad } from "./utils/lazyload.js";
 import { inicializarRevelados, dibujarLogo } from "./utils/animaciones.js";
 
@@ -39,15 +39,53 @@ async function main() {
       activarMusicaTrasPrimerToque();
     },
     onFinalizar: () => {
-      mostrarMenu();
       inicializarExperiencia();
     },
   });
 }
 
+function inicializarHeroZoom() {
+  const hero = document.getElementById("inicio");
+  const visual = document.querySelector(".hero__visual");
+  const media = visual?.querySelector(".hero__media");
+
+  if (!hero || !visual || !media) return;
+
+  const lenis = obtenerLenis();
+  let rafId = null;
+
+  const actualizar = () => {
+    const scrollTop = lenis?.scroll || window.scrollY || 0;
+    const start = hero.offsetTop + window.innerHeight * 0.05;
+    const end = hero.offsetTop + hero.offsetHeight * 0.6;
+    const progress = Math.min(1, Math.max(0, (scrollTop - start) / Math.max(1, end - start)));
+    const scale = 1 + progress * 0.2;
+
+    media.style.transform = `scale(${scale})`;
+    rafId = null;
+  };
+
+  const onScroll = () => {
+    if (!rafId) {
+      rafId = requestAnimationFrame(actualizar);
+    }
+  };
+
+  onScroll();
+
+  if (lenis) {
+    lenis.on("scroll", onScroll);
+  } else {
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  window.addEventListener("resize", onScroll, { passive: true });
+}
+
 function inicializarExperiencia() {
   // 3. Scroll suave sincronizado con GSAP
   inicializarLenis();
+  inicializarHeroZoom();
 
   // 4. Navegación
   inicializarMenu();

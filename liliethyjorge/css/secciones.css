@@ -24,15 +24,25 @@
 /* ---- Hero / Inicio ---- */
 .hero {
   min-height: 100svh;
+  position: relative;
+  isolation: isolate;
+}
+
+.hero .escena__inner {
+  padding-top: 2rem;
+  position: relative;
+  z-index: 60;
 }
 
 .hero__logo-slot {
   width: 96px;
   height: 96px;
-  margin: 0 auto var(--space-lg);
+  margin: 0 auto 0.35rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  will-change: transform;
+  transform-origin: center center;
 }
 
 .hero__logo-slot svg {
@@ -54,8 +64,36 @@
   fill: var(--color-ink);
 }
 
+.hero__visual {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+}
+
 .hero__media {
-  margin: 0 var(--gutter) var(--space-lg);
+  margin: 0 auto var(--space-md);
+  max-width: min(100%, 420px);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.hero__media--centered {
+  display: grid;
+  place-items: center;
+  background: transparent;
+  margin-top: -0.15rem;
+  padding: 0 0.25rem;
+}
+
+.hero__media--centered img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  transform-origin: center center;
+  will-change: transform;
 }
 
 .hero__nombres {

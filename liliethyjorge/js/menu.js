@@ -95,6 +95,9 @@ export function inicializarMenu() {
 
       const bajando = scroll > ultimoScroll;
       const pasoElUmbral = scroll > UMBRAL_OCULTAR;
+      const debeMostrar = scroll > UMBRAL_OCULTAR;
+
+      menu.classList.toggle("is-visible", debeMostrar);
 
       if (bajando && pasoElUmbral) {
         menu.classList.add("is-hidden");
@@ -112,6 +115,3 @@ export function inicializarMenu() {
   });
 }
 
-export function mostrarMenu() {
-  document.getElementById("menu").classList.add("is-visible");
-}
