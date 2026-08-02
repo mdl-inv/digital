@@ -23,7 +23,7 @@
 
 /* ---- Hero / Inicio ---- */
 .hero {
-  min-height: 100svh;
+  min-height: auto;
   position: relative;
   isolation: isolate;
 }
@@ -32,6 +32,7 @@
   padding-top: 1rem;
   position: relative;
   z-index: 60;
+  
 }
 
 .hero__logo-slot {
@@ -125,12 +126,14 @@
 
 @media (max-width: 480px) {
   .hero__nombres {
-    font-size: clamp(1.55rem, 7.2vw, 2.1rem);
+    font-size: clamp(2.5rem, 9vw, 3.8rem);
     line-height: 0.9;
     max-width: min(100%, 240px);
     padding: 0;
     letter-spacing: 0.001em;
     word-break: keep-all;
+    margin-top: 3rem;   /* Separa el nombre de la imagen */
+    margin-bottom: 0;   /* Sin espacio extra abajo */
   }
 
   .hero__amp {
@@ -186,7 +189,14 @@
 .historia__intro-inner {
   max-width: min(100%, 900px);
   margin: 0 auto;
-  padding: 0 var(--gutter);
+  background: #0a0a0a;
+
+  min-height: 150px;      /* Ajusta la altura a tu gusto */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente */
+  align-items: center;     /* Centra horizontalmente */
+  text-align: center;
 }
 
 .historia__intro-banner {
@@ -255,7 +265,7 @@
 .cuenta-regresiva {
   position: relative;
   z-index: 1;
-  text-align: left;
+  text-align: center;
   margin: 0 0 var(--space-lg);
   padding: 0;
 }
