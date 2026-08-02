@@ -37,7 +37,7 @@
 
 .hero__logo-slot {
   width: min(36vw, 180px);
-  max-width: 180px;
+  max-width: 140px;
   height: auto;
   margin: 0 auto 0.6rem;
   display: flex;
