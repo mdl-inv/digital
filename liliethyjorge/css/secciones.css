@@ -170,6 +170,7 @@
 #historia {
   background: var(--color-white);
   justify-content: flex-start;
+   min-height: auto;
 }
 
 #historia .escena__inner {
