@@ -32,7 +32,7 @@ h2,
 
 .eyebrow {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.3rem;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
   color: var(--color-accent-blue);
@@ -55,6 +55,8 @@ h2,
   font-size: var(--fs-body);
   color: var(--color-graphite);
   line-height: var(--lh-body);
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 /* Utilidad: divide texto en spans por letra para animar letra por letra.

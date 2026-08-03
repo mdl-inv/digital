@@ -322,6 +322,45 @@
   justify-content: flex-start;
    min-height: auto;
 }
+#recepcion {
+  background: var(--color-white);
+  justify-content: flex-start;
+   min-height: auto;
+}
+.recepcion-card {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.recepcion-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.btn-ubicacion {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 12px 28px;
+    border: 1px solid #fff;
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+
+    color: #fff;
+    text-decoration: none;
+    font-family: inherit;
+    transition: .3s;
+}
+
+.btn-ubicacion:hover {
+    background: rgba(255,255,255,.25);
+}
 
 /* ---- Cronograma ---- */
 .cronograma__item {
@@ -352,6 +391,36 @@
   height: 32px;
   border-radius: 50%;
   border: var(--hairline-w) solid var(--color-hairline);
+}
+.vestimenta__imagen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.vestimenta__imagen img {
+    width: 100%;
+    max-width: 280px; /* Cambia este valor al tamaño que quieras */
+    height: auto;
+    display: block;
+}
+
+.vestimenta__imagen h2 {
+    margin-top: 1rem;
+}
+.vestimenta__texto {
+    max-width: 320px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    line-height: 1.6;
+}
+.vestimenta__titulo {
+    font-size: 2rem;      /* Más grande */
+    font-weight: 700;     /* Negrita */
+    margin-top: 1rem;
+    text-align: center;
 }
 
 /* ---- Galería ---- */
