@@ -177,6 +177,7 @@
   padding-top: 0;
   padding-left: var(--gutter);
   padding-right: var(--gutter);
+  padding-bottom: 0%;
 }
 
 .historia__intro {
