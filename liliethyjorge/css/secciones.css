@@ -363,6 +363,15 @@
 }
 
 /* ---- Cronograma ---- */
+#cronograma {
+    background: #000;
+    justify-content: flex-start;
+    min-height: auto;
+    padding-top: 0;
+}
+#cronograma .escena__inner {
+    padding-top: 0;
+}
 .cronograma__item {
   display: grid;
   grid-template-columns: 64px 1fr;
@@ -378,7 +387,37 @@
   font-size: 1.1rem;
 }
 
+.cronograma-banner {
+    position: relative;
+}
+
+.banner-texto {
+    position: absolute;
+    top: 50%;                 /* Muévelo con este valor */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+.banner-texto .eyebrow,
+.banner-texto h2 {
+    color: #fff;              /* O el color que combine con la imagen */
+}
+
+.banner-texto .titulo-linea {
+    width: 90px;
+    margin: .5rem auto 0;
+}
+
 /* ---- Código de vestimenta ---- */
+#vestimenta {
+  background: var(--color-white);
+  justify-content: flex-start;
+   min-height: auto;
+}
+
 .vestimenta__paleta {
   display: flex;
   gap: var(--space-xs);
@@ -421,6 +460,14 @@
     font-weight: 700;     /* Negrita */
     margin-top: 1rem;
     text-align: center;
+}
+
+.imagen-completa {
+    display: block;
+    width: 100vw;
+    max-width: none;
+    margin: 0 calc(50% - 50vw) 0;
+    height: auto;
 }
 
 /* ---- Galería ---- */
