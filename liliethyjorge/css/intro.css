@@ -25,16 +25,35 @@
 .intro__panel {
   position: fixed;
   inset: 0;
-  background: var(--color-off-white);
+  background: red;
   z-index: 1;
 }
 
+@media (max-width: 768px) {
+  .intro__panel {
+        background: url("../assets/images/portada.png") center center / cover no-repeat;
+  }
+}
+
+/* Solo cuando se toca la pantalla */
+.intro.is-splitting .intro__panel--left {
+    right: 50%;
+    background-position: left center;
+}
+
+.intro.is-splitting .intro__panel--right {
+    left: 50%;
+    background-position: right center;
+}
+
 .intro__panel--left {
-  right: 50%;
+  left: 0;
+  right: 0;
 }
 
 .intro__panel--right {
-  left: 50%;
+  left: 0;
+  right: 0;
 }
 
 .intro__monogram {

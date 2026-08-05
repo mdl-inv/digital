@@ -37,7 +37,7 @@ export function inicializarIntro({ onFinalizar, onPrimerToque } = {}) {
     if (evento && evento.cancelable) evento.preventDefault();
 
     intro.classList.add("is-closing");
-
+    intro.classList.add("is-splitting");
     if (typeof onPrimerToque === "function") onPrimerToque();
 
     const tl = gsap.timeline({
