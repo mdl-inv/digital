@@ -31,7 +31,7 @@
 
 @media (max-width: 768px) {
   .intro__panel {
-        background: url("../assets/images/portada.png") center center / cover no-repeat;
+        background: url("../assets/images/portada.webp") center center / cover no-repeat;
   }
 }
 
