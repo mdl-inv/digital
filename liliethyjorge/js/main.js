@@ -26,22 +26,27 @@ import { inicializarFaq } from "./secciones/faq.js";
 import { inicializarRsvp } from "./secciones/rsvp.js";
 
 async function main() {
-  // 1. Invitado — se resuelve antes de mostrar cualquier contenido
-  const invitado = await obtenerInvitadoActual();
-  aplicarInvitadoAlDOM(invitado);
 
-  // Controles que existen desde el primer frame
+  // 1. Mostrar el intro inmediatamente
   inicializarMusica();
 
-  // 2. Intro: toda la pantalla es tocable, sin botones
   inicializarIntro({
     onPrimerToque: () => {
       activarMusicaTrasPrimerToque();
     },
+
     onFinalizar: () => {
       inicializarExperiencia();
     },
   });
+
+  // 2. Obtener invitado en segundo plano
+  try {
+    const invitado = await obtenerInvitadoActual();
+    aplicarInvitadoAlDOM(invitado);
+  } catch (error) {
+    console.error("Error obteniendo invitado:", error);
+  }
 }
 
 function inicializarHeroZoom() {
