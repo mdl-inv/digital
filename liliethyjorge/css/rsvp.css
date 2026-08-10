@@ -7,6 +7,7 @@
   padding-bottom: var(--space-lg);
 }
 
+
 .rsvp__form {
   display: flex;
   flex-direction: column;
@@ -15,11 +16,13 @@
   margin-top: var(--space-lg);
 }
 
+
 .rsvp__campo {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
+
 
 .rsvp__campo label {
   font-size: var(--fs-eyebrow);
@@ -27,6 +30,7 @@
   text-transform: uppercase;
   color: var(--color-graphite-soft);
 }
+
 
 .rsvp__campo input,
 .rsvp__campo select,
@@ -38,16 +42,19 @@
   font-size: 1rem;
 }
 
+
 .rsvp__campo input:focus,
 .rsvp__campo select:focus,
 .rsvp__campo textarea:focus {
   border-color: var(--color-accent-blue);
 }
 
+
 .rsvp__opciones-asistencia {
   display: flex;
   gap: var(--space-sm);
 }
+
 
 .rsvp__opcion {
   flex: 1;
@@ -60,28 +67,16 @@
   transition: all var(--dur-fast) var(--ease-soft);
 }
 
+
 .rsvp__opcion.is-selected {
   border-color: var(--color-accent-blue);
   color: var(--color-accent-blue);
   background: var(--color-accent-blue-soft);
 }
 
+
 .rsvp__submit {
   margin-top: var(--space-sm);
   width: 100%;
   justify-content: center;
-}
-
-.rsvp__confirmacion {
-  display: none;
-  text-align: center;
-  padding: var(--space-lg) var(--gutter);
-}
-
-.rsvp.is-enviado .rsvp__form {
-  display: none;
-}
-
-.rsvp.is-enviado .rsvp__confirmacion {
-  display: block;
 }

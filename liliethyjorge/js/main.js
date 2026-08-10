@@ -24,6 +24,8 @@ import { inicializarHoteles } from "./secciones/hoteles.js";
 import { inicializarMapa } from "./secciones/mapa.js";
 import { inicializarFaq } from "./secciones/faq.js";
 import { inicializarRsvp } from "./secciones/rsvp.js";
+import { inicializarCarrusel } from "./secciones/carrusel.js";
+import { inicializarImagenScroll } from "./secciones/imagen-scroll.js";
 
 async function main() {
 
@@ -119,6 +121,8 @@ function inicializarExperiencia() {
   inicializarMapa();
   inicializarFaq();
   inicializarRsvp();
+  inicializarCarrusel();
+  inicializarImagenScroll();
 }
 
 main();

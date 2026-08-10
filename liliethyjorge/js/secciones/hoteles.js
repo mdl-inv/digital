@@ -1,94 +1,299 @@
 /**
  * hoteles.js
- * La sección Hoteles no muestra la info directamente: cada botón abre
- * un popup con foto, descripción, dirección y accesos directos a
- * Google Maps, llamada telefónica y reserva.
+ *
+ * Popup informativo de hoteles.
  */
 
-import { gsap, EASE_SIGNATURE } from "../utils/animaciones.js";
-
 const DATOS_HOTELES = {
+
   "gran-plaza": {
+
     nombre: "Gran Plaza Durango",
-    imagen: "assets/images/hotel-gran-plaza.webp",
-    direccion: "Blvd. Francisco Villa 555, Durango, Dgo.",
+
+    imagen:
+      "assets/images/hotel-gran-plaza.webp",
+
+    direccion:
+      "Blvd. Francisco Villa 555, Durango, Dgo.",
+
     descripcion:
-      "A 10 minutos del lugar de la recepción. Cuenta con tarifa preferencial para invitados de la boda mencionando el código LILIJORGE.",
-    telefono: "+526181234567",
-    mapa: "https://maps.google.com/?q=Gran+Plaza+Durango",
-    reserva: "https://ejemplo-reservas.com/gran-plaza",
+      "A 10 minutos del lugar de la recepción. Cuenta con tarifa preferencial para invitados de la boda mencionando el código LILIJORGE."
+
   },
+
+
   "hacienda-suites": {
+
     nombre: "Hacienda Suites",
-    imagen: "assets/images/hotel-hacienda-suites.webp",
-    direccion: "Camino Real 210, Durango, Dgo.",
+
+    imagen:
+      "assets/images/hotel-hacienda-suites.webp",
+
+    direccion:
+      "Camino Real 210, Durango, Dgo.",
+
     descripcion:
-      "Habitaciones amplias tipo suite, ideales para familias. A 15 minutos de la recepción.",
-    telefono: "+526181234568",
-    mapa: "https://maps.google.com/?q=Hacienda+Suites+Durango",
-    reserva: "https://ejemplo-reservas.com/hacienda-suites",
+      "Habitaciones amplias tipo suite, ideales para familias. A 15 minutos de la recepción."
+
   },
+
+
   "posada-real": {
+
     nombre: "Posada Real",
-    imagen: "assets/images/hotel-posada-real.webp",
-    direccion: "Av. 20 de Noviembre 88, Durango, Dgo.",
+
+    imagen:
+      "assets/images/hotel-posada-real.webp",
+
+    direccion:
+      "Av. 20 de Noviembre 88, Durango, Dgo.",
+
     descripcion:
-      "Opción económica y céntrica, a 20 minutos de la recepción con servicio de transporte disponible.",
-    telefono: "+526181234569",
-    mapa: "https://maps.google.com/?q=Posada+Real+Durango",
-    reserva: "https://ejemplo-reservas.com/posada-real",
-  },
+      "Opción económica y céntrica, a 20 minutos de la recepción con servicio de transporte disponible."
+
+  }
+
 };
 
+
 export function inicializarHoteles() {
-  const overlay = document.getElementById("popup-overlay");
-  const popup = document.getElementById("popup-hotel");
-  const triggers = document.querySelectorAll(".hotel-trigger");
-  const cerrarBtns = document.querySelectorAll("[data-popup-close]");
 
-  const campos = {
-    imagen: document.getElementById("popup-imagen"),
-    nombre: document.getElementById("popup-nombre"),
-    direccion: document.getElementById("popup-direccion"),
-    descripcion: document.getElementById("popup-descripcion"),
-    mapa: document.getElementById("popup-mapa"),
-    llamar: document.getElementById("popup-llamar"),
-    reservar: document.getElementById("popup-reservar"),
-  };
+  const overlay =
+    document.getElementById("popup-overlay");
 
-  function abrirPopup(idHotel) {
-    const datos = DATOS_HOTELES[idHotel];
-    if (!datos) return;
+  const popup =
+    document.getElementById("popup-hotel");
 
-    campos.imagen.src = datos.imagen;
-    campos.imagen.alt = datos.nombre;
-    campos.nombre.textContent = datos.nombre;
-    campos.direccion.textContent = datos.direccion;
-    campos.descripcion.textContent = datos.descripcion;
-    campos.mapa.href = datos.mapa;
-    campos.llamar.href = `tel:${datos.telefono}`;
-    campos.reservar.href = datos.reserva;
+  const triggers =
+    document.querySelectorAll(".hotel-trigger");
 
-    document.body.style.overflow = "hidden";
-    overlay.classList.add("is-open");
-    popup.classList.add("is-open");
+const hotelesToggle =
+  document.getElementById("hoteles-toggle");
 
-    gsap.fromTo(
-      popup,
-      { yPercent: 100 },
-      { yPercent: 0, duration: 0.6, ease: EASE_SIGNATURE }
-    );
-  }
+const hotelesLista =
+  document.getElementById("hoteles-lista");
 
-  function cerrarPopup() {
-    document.body.style.overflow = "";
-    overlay.classList.remove("is-open");
-    popup.classList.remove("is-open");
-  }
+  if (hotelesToggle && hotelesLista) {
 
-  triggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => abrirPopup(trigger.dataset.hotel));
+  hotelesToggle.addEventListener("click", () => {
+
+    const estaAbierto =
+      hotelesToggle.getAttribute("aria-expanded") === "true";
+
+    if (estaAbierto) {
+
+      // Ocultar
+      hotelesLista.hidden = true;
+
+      hotelesToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      hotelesToggle.classList.remove("is-open");
+
+      hotelesToggle.querySelector(
+        "span:first-child"
+      ).textContent = "Ver más";
+
+    } else {
+
+      // Mostrar
+      hotelesLista.hidden = false;
+
+      hotelesToggle.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+
+      hotelesToggle.classList.add("is-open");
+
+      hotelesToggle.querySelector(
+        "span:first-child"
+      ).textContent = "Ver menos";
+
+    }
+
   });
 
-  cerrarBtns.forEach((btn) => btn.addEventListener("click", cerrarPopup));
+}
+
+  const cerrarBtns =
+    document.querySelectorAll("[data-popup-close]");
+
+
+  if (!overlay || !popup) {
+
+    console.warn(
+      "hoteles.js: no se encontró el popup."
+    );
+
+    return;
+
+  }
+
+
+  const imagen =
+    document.getElementById("popup-imagen");
+
+  const nombre =
+    document.getElementById("popup-nombre");
+
+  const direccion =
+    document.getElementById("popup-direccion");
+
+  const descripcion =
+    document.getElementById("popup-descripcion");
+
+
+  // ==========================================================
+  // ABRIR POPUP
+  // ==========================================================
+
+  function abrirPopup(idHotel) {
+
+    const hotel =
+      DATOS_HOTELES[idHotel];
+
+    if (!hotel) {
+
+      console.warn(
+        "Hotel no encontrado:",
+        idHotel
+      );
+
+      return;
+
+    }
+
+
+    if (imagen) {
+
+      imagen.src =
+        hotel.imagen;
+
+      imagen.alt =
+        hotel.nombre;
+
+    }
+
+
+    if (nombre) {
+
+      nombre.textContent =
+        hotel.nombre;
+
+    }
+
+
+    if (direccion) {
+
+      direccion.textContent =
+        hotel.direccion;
+
+    }
+
+
+    if (descripcion) {
+
+      descripcion.textContent =
+        hotel.descripcion;
+
+    }
+
+
+    // Mostrar
+
+    overlay.classList.add(
+      "is-open"
+    );
+
+    popup.classList.add(
+      "is-open"
+    );
+
+
+    // Bloquear scroll de la página
+
+    document.body.style.overflow =
+      "hidden";
+
+  }
+
+
+  // ==========================================================
+  // CERRAR POPUP
+  // ==========================================================
+
+  function cerrarPopup() {
+
+    overlay.classList.remove(
+      "is-open"
+    );
+
+    popup.classList.remove(
+      "is-open"
+    );
+
+
+    document.body.style.overflow =
+      "";
+
+  }
+
+
+  // ==========================================================
+  // BOTONES DE HOTEL
+  // ==========================================================
+
+  triggers.forEach(trigger => {
+
+    trigger.addEventListener(
+      "click",
+      () => {
+
+        abrirPopup(
+          trigger.dataset.hotel
+        );
+
+      }
+    );
+
+  });
+
+
+  // ==========================================================
+  // CERRAR
+  // ==========================================================
+
+  cerrarBtns.forEach(btn => {
+
+    btn.addEventListener(
+      "click",
+      cerrarPopup
+    );
+
+  });
+
+
+  // ==========================================================
+  // ESC
+  // ==========================================================
+
+  document.addEventListener(
+    "keydown",
+    event => {
+
+      if (
+        event.key === "Escape" &&
+        popup.classList.contains("is-open")
+      ) {
+
+        cerrarPopup();
+
+      }
+
+    }
+  );
+
 }

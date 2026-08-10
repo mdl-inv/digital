@@ -1,89 +1,410 @@
 /* ==========================================================================
-   HOTELES-POPUP.CSS
-   Popup modal para el detalle de cada hotel.
+   HOTELES
+   ========================================================================== */
+
+.hoteles-lista {
+  width: 100%;
+  max-width: 680px;
+  margin: var(--space-lg) auto 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.hoteles-lista[hidden] {
+  display: none !important;
+}
+
+/* ==========================================================================
+   BOTONES DE HOTEL
+   ========================================================================== */
+
+.hotel-trigger {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: var(--space-sm);
+
+  padding: var(--space-md) 0;
+
+  border: 0;
+  border-top: var(--hairline-w) solid var(--color-hairline);
+
+  background: transparent;
+
+  color: var(--color-graphite);
+
+  text-align: left;
+
+  cursor: pointer;
+
+  font: inherit;
+}
+
+.hotel-trigger:last-child {
+  border-bottom: var(--hairline-w) solid var(--color-hairline);
+}
+
+.hotel-trigger__numero {
+  flex: 0 0 30px;
+
+  color: var(--color-graphite-soft);
+
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--tracking-mid);
+}
+
+.hotel-trigger__contenido {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.hotel-trigger__contenido strong {
+  font-family: var(--font-display);
+
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.hotel-trigger__contenido small {
+  color: var(--color-graphite-soft);
+
+  font-size: var(--fs-small);
+}
+
+.hotel-trigger__flecha {
+  color: var(--color-graphite-soft);
+
+  font-size: 1.2rem;
+
+  transition:
+    transform var(--dur-fast) var(--ease-soft);
+}
+
+.hotel-trigger:hover .hotel-trigger__flecha {
+  transform: translateX(5px);
+}
+
+
+/* ==========================================================================
+   OVERLAY
    ========================================================================== */
 
 .popup-overlay {
   position: fixed;
+
   inset: 0;
+
   z-index: var(--z-popup);
-  background: var(--color-overlay);
+
+  background: rgba(0, 0, 0, 0.55);
+
   opacity: 0;
+
+  visibility: hidden;
+
   pointer-events: none;
-  transition: opacity var(--dur-mid) var(--ease-soft);
+
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
 }
 
 .popup-overlay.is-open {
   opacity: 1;
+
+  visibility: visible;
+
   pointer-events: auto;
 }
 
-.popup-card {
+
+/* ==========================================================================
+   POPUP
+   ========================================================================== */
+
+.popup-card--hotel {
   position: fixed;
+
   left: 0;
   right: 0;
   bottom: 0;
+
   z-index: calc(var(--z-popup) + 1);
-  background: var(--color-white);
-  border-radius: 18px 18px 0 0;
-  max-height: 88svh;
-  overflow-y: auto;
-  transform: translateY(100%);
-  transition: transform var(--dur-mid) var(--ease-signature);
-}
 
-.popup-card.is-open {
-  transform: translateY(0);
-}
-
-.popup-card__handle {
-  width: 36px;
-  height: 4px;
-  border-radius: 2px;
-  background: var(--color-hairline);
-  margin: var(--space-sm) auto;
-}
-
-.popup-card__media {
   width: 100%;
-  aspect-ratio: 16 / 10;
+
+  max-width: 760px;
+
+  max-height: 90svh;
+
+  margin: 0 auto;
+
+  overflow-y: auto;
+
+  background: var(--color-white);
+
+  border-radius: 22px 22px 0 0;
+
+  transform: translateY(105%);
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    transform 0.45s cubic-bezier(.22,.61,.36,1),
+    visibility 0s linear 0.45s;
 }
 
-.popup-card__body {
-  padding: var(--space-md) var(--gutter) var(--space-xl);
+.popup-card--hotel.is-open {
+
+  transform: translateY(0);
+
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transition:
+    transform 0.45s cubic-bezier(.22,.61,.36,1),
+    visibility 0s;
 }
 
-.popup-card__nombre {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  margin-bottom: var(--space-xs);
+
+/* ==========================================================================
+   HANDLE
+   ========================================================================== */
+
+.popup-card--hotel .popup-card__handle {
+
+  width: 38px;
+  height: 4px;
+
+  margin: 10px auto 8px;
+
+  border-radius: 10px;
+
+  background: var(--color-hairline);
 }
 
-.popup-card__direccion {
-  color: var(--color-graphite-soft);
-  font-size: var(--fs-small);
-  margin-bottom: var(--space-sm);
-}
 
-.popup-card__descripcion {
-  margin-bottom: var(--space-lg);
-}
+/* ==========================================================================
+   CERRAR
+   ========================================================================== */
 
-.popup-card__acciones {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
+.popup-card--hotel .popup-card__cerrar {
 
-.popup-card__cerrar {
   position: absolute;
-  top: var(--space-sm);
+
+  top: 14px;
   right: var(--gutter);
-  width: 32px;
-  height: 32px;
+
+  z-index: 10;
+
+  width: 34px;
+  height: 34px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
-  z-index: 2;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  color: var(--color-graphite);
+
+  font-size: 1.6rem;
+  font-weight: 300;
+
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+
+/* ==========================================================================
+   IMAGEN
+   ========================================================================== */
+
+.popup-card--hotel .popup-card__media {
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  background: #eee;
+}
+
+.popup-card--hotel .popup-card__media img {
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* ==========================================================================
+   CUERPO
+   ========================================================================== */
+
+.popup-card--hotel .popup-card__body {
+
+  padding:
+    var(--space-lg)
+    var(--gutter)
+    var(--space-xl);
+
+  text-align: center;
+}
+
+
+/* ==========================================================================
+   EYEBROW
+   ========================================================================== */
+
+.popup-card__eyebrow {
+
+  margin: 0 0 var(--space-xs);
+
+  color: var(--color-graphite-soft);
+
+  font-size: var(--fs-eyebrow);
+
+  letter-spacing: var(--tracking-mid);
+
+  text-transform: uppercase;
+}
+
+
+/* ==========================================================================
+   NOMBRE
+   ========================================================================== */
+
+.popup-card--hotel .popup-card__nombre {
+
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(2rem, 8vw, 3rem);
+
+  font-weight: 400;
+
+  line-height: 1.1;
+
+  color: var(--color-graphite);
+}
+
+
+/* ==========================================================================
+   LÍNEA
+   ========================================================================== */
+
+.popup-card__linea {
+
+  display: block;
+
+  width: 64px;
+  height: 14px;
+
+  margin:
+    var(--space-xs)
+    auto
+    var(--space-md);
+}
+
+.popup-card__linea path {
+
+  fill: none;
+
+  stroke: var(--color-graphite);
+
+  stroke-width: 1;
+}
+
+
+/* ==========================================================================
+   DIRECCIÓN
+   ========================================================================== */
+
+.popup-card--hotel .popup-card__direccion {
+
+  margin: 0 0 var(--space-md);
+
+  color: var(--color-graphite-soft);
+
+  font-size: var(--fs-small);
+
+  line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   DESCRIPCIÓN
+   ========================================================================== */
+
+.popup-card--hotel .popup-card__descripcion {
+
+  max-width: 560px;
+
+  margin: 0 auto;
+
+  color: var(--color-graphite);
+
+  font-size: var(--fs-body);
+
+  line-height: 1.7;
+}
+
+
+/* ==========================================================================
+   MOBILE
+   ========================================================================== */
+
+@media (max-width: 600px) {
+
+  .popup-card--hotel {
+
+    max-height: 92svh;
+
+    border-radius: 20px 20px 0 0;
+
+  }
+
+  .popup-card--hotel .popup-card__body {
+
+    padding:
+      var(--space-md)
+      var(--gutter)
+      var(--space-xl);
+
+  }
+
+  .popup-card--hotel .popup-card__nombre {
+
+    font-size: 2.2rem;
+
+  }
+
+  .popup-card--hotel .popup-card__descripcion {
+
+    font-size: 0.95rem;
+
+  }
+
 }

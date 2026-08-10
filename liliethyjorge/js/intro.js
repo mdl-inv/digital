@@ -68,8 +68,11 @@ export function inicializarIntro({ onFinalizar, onPrimerToque } = {}) {
 
     tl.to(intro, { opacity: 0, duration: 0.4 }, ">-0.3");
 
-    // Aseguramos que la duración total ronde los 2 segundos del brief.
-    tl.duration(DURACION_CIERRE);
+tl.call(() => {
+  intro.style.display = "none";
+}, null, ">");
+
+tl.duration(DURACION_CIERRE);
   }
 
   intro.addEventListener("pointerdown", reproducirCierre, { once: true });
