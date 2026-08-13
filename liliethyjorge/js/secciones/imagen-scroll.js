@@ -5,67 +5,61 @@
 
 export function inicializarImagenScroll() {
 
-  const seccion = document.getElementById("imagen-scroll");
+  const secciones = document.querySelectorAll(".imagen-scroll");
 
-  if (!seccion) return;
-
-  const imagen = seccion.querySelector(".imagen-scroll__imagen");
-
-  if (!imagen) return;
+  if (!secciones.length) return;
 
 
-  function actualizar() {
+  secciones.forEach((seccion) => {
 
-    const rect = seccion.getBoundingClientRect();
+    const imagen = seccion.querySelector(".imagen-scroll__imagen");
 
-    const ventana = window.innerHeight;
-
-    /*
-     * La sección está entrando/saliendo
-     * del viewport.
-     */
-
-    const progreso =
-      (ventana - rect.top) /
-      (ventana + rect.height);
+    if (!imagen) return;
 
 
-    /*
-     * Limitamos el valor entre 0 y 1.
-     */
+    function actualizar() {
 
-    const p = Math.max(
-      0,
-      Math.min(1, progreso)
+      const rect = seccion.getBoundingClientRect();
+
+      const ventana = window.innerHeight;
+
+
+      const progreso =
+        (ventana - rect.top) /
+        (ventana + rect.height);
+
+
+      const p = Math.max(
+        0,
+        Math.min(1, progreso)
+      );
+
+
+      const movimiento =
+        (p - 0.5) * 400;
+
+
+      imagen.style.transform =
+        `translate3d(0, ${movimiento}px, 0)`;
+    }
+
+
+    window.addEventListener(
+      "scroll",
+      actualizar,
+      { passive: true }
     );
 
 
-    /*
-     * Movimiento bastante visible.
-     */
-
-    const movimiento =
-      (p - 0.5) * 400;
-
-
-    imagen.style.transform =
-      `translate3d(0, ${movimiento}px, 0)`;
-  }
+    window.addEventListener(
+      "resize",
+      actualizar,
+      { passive: true }
+    );
 
 
-  window.addEventListener(
-    "scroll",
-    actualizar,
-    { passive: true }
-  );
+    actualizar();
 
+  });
 
-  window.addEventListener(
-    "resize",
-    actualizar,
-    { passive: true }
-  );
-
-
-  actualizar();
 }

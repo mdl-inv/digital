@@ -405,6 +405,13 @@
 .banner-texto h2 {
     color: #1b3a6b;              /* O el color que combine con la imagen */
 }
+#cronograma .banner-texto .eyebrow {
+  font-size: 1rem;
+}
+
+#cronograma .banner-texto h2 {
+  font-size: 1.5rem;
+}
 
 .banner-texto .titulo-linea {
     width: 90px;
@@ -476,6 +483,11 @@
    min-height: auto;
 }
 
+#rsvp .escena__inner {
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+}
+
 .mensaje-ninos {
   text-align: center;
   color: #fff;
@@ -485,18 +497,29 @@
 }
 
 .mensaje-ninos p {
-  font-size: 1.15rem;
+  font-size: 1rem;
   line-height: 1.7;
   margin: 0;
 }
 
 .mensaje-ninos h2 {
-  font-size: 1.85rem;
+  font-size: 1.4rem;
   margin-top: 1.2rem;
   color: #fff;
 }
 
 /* ---- Galería ---- */
+#galeria {
+  background: var(--color-white);
+  justify-content: flex-start;
+   min-height: auto;
+}
+
+#galeria .escena__inner {
+  padding-top: 0;
+  padding-bottom: 5rem;
+}
+
 .galeria__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -638,6 +661,19 @@
 }
 
 /* ---- Mesa de regalos ---- */
+
+#regalos {
+   background: #000;
+    justify-content: flex-start;
+    min-height: auto;
+    padding-top: 0;
+}
+
+#regalos .escena__inner {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
 .regalos__opciones {
   display: flex;
   flex-direction: column;
@@ -652,7 +688,10 @@
   padding: var(--space-sm) 0;
   border-bottom: var(--hairline-w) solid var(--color-hairline);
 }
+.regalos-titulo {
+color: var(--color-white);
 
+}
 /* ---- Hoteles ---- */
 .hoteles__lista {
   display: flex;
@@ -691,6 +730,14 @@
 }
 
 /* ---- FAQ ---- */
+
+#faq {
+  background: var(--color-white);
+  justify-content: flex-start;
+   min-height: auto;
+}
+
+
 .faq__item {
   border-bottom: var(--hairline-w) solid var(--color-hairline);
 }
@@ -703,7 +750,7 @@
   padding: var(--space-md) var(--gutter);
   text-align: left;
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.3rem;
 }
 
 .faq__signo {
@@ -728,6 +775,18 @@
 }
 
 /* ---- Mensaje final ---- */
+#mensaje-final {
+  background: var(--color-white);
+  justify-content: flex-start;
+   min-height: auto;
+}
+
+#mensaje-final .escena__inner {
+  padding-top: 10rem;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  padding-bottom: 4rem;
+}
 .mensaje-final {
   text-align: center;
 }
@@ -814,3 +873,6 @@
    min-height: auto;
 }
 
+.imagen-scroll__imagen--2 {
+  background-image: url("../assets/images/DSC00325.jpg");
+}

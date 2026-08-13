@@ -267,6 +267,20 @@
 
     </div>
     </section>
+    <!-- ============================================================
+     IMAGEN FIJA / PARALLAX
+============================================================= -->
+
+<section class="imagen-scroll" id="imagen-scroll">
+
+  <div class="imagen-scroll__contenedor">
+
+    <div class="imagen-scroll__imagen"></div>
+
+  </div>
+
+</section>
+
  <!-- ============================================================
          CONFIRMACIÓN DE ASISTENCIA (RSVP)
     ============================================================= -->
@@ -316,24 +330,7 @@
   data-section="galeria"
 >
 
-  <div class="escena__inner container">
-
-    <header class="escena__header center">
-
-      <p class="eyebrow">Nuestros momentos</p>
-
-      <h2>Galería</h2>
-
-      <svg
-        class="titulo-linea"
-        viewBox="0 0 64 14"
-        aria-hidden="true"
-      >
-        <path d="M2,7 C16,2 48,12 62,7" />
-      </svg>
-
-    </header>
-
+  <div class="escena__inner">
 
     <div class="carousel-section">
 
@@ -397,285 +394,22 @@
          MESA DE REGALOS
     ============================================================= -->
     <section class="escena" id="regalos" data-section="regalos">
+      <img class="imagen-completa" src="assets/images/separador-4.png" alt="Código de vestimenta" loading="lazy" decoding="async">
+
       <div class="escena__inner container">
         <header class="escena__header center">
-          <p class="eyebrow">Mesa de regalos</p>
-          <h2>Un detalle para nuestro nuevo hogar</h2>
+          <p class="eyebrow">Sugerencia</p>
+          <h2 class="regalos-titulo">De regalos</h2>
           <svg class="titulo-linea" viewBox="0 0 64 14" aria-hidden="true"><path d="M2,7 C 16,2 48,12 62,7" /></svg>
+        <p class="text-body-regalos" >Si deseas hacernos un regalo, te compartimos algunas opciones que nos encantaría recibir. ¡Gracias por tu cariño y apoyo!</p>
+        
         </header>
         <div class="regalos__opciones">
-          <div class="regalos__opcion">
-            <span class="text-body">Liverpool — Mesa de regalos</span>
-            <a class="boton boton--azul" href="#" data-tienda="liverpool">Ver</a>
-          </div>
-          <div class="regalos__opcion">
-            <span class="text-body">Amazon — Lista de regalos</span>
-            <a class="boton boton--azul" href="#" data-tienda="amazon">Ver</a>
-          </div>
-          <div class="regalos__opcion">
-            <span class="text-body">Sobre de novios</span>
-            <a class="boton boton--azul" href="#" data-tienda="sobre">Info</a>
-          </div>
+            <img class="historia__imagen" src="assets/images/lista_regalos.png" alt="" loading="lazy" decoding="async"/>
         </div>
       </div>
     </section>
-<!-- ============================================================
-     IMAGEN FIJA / PARALLAX
-============================================================= -->
 
-<section class="imagen-scroll" id="imagen-scroll">
-
-  <div class="imagen-scroll__contenedor">
-
-    <div class="imagen-scroll__imagen"></div>
-
-  </div>
-
-</section>
-
-    <!-- ============================================================
-     HOTELES
-============================================================= -->
-
-<section class="escena escena--alt" id="hoteles" data-section="hoteles">
-
-  <div class="escena__inner container">
-
-    <header class="escena__header center">
-
-      <p class="eyebrow">Hospedaje</p>
-
-      <h2>Hoteles recomendados</h2>
-
-      <svg
-        class="titulo-linea"
-        viewBox="0 0 64 14"
-        aria-hidden="true"
-      >
-        <path d="M2,7 C16,2 48,12 62,7" />
-      </svg>
-
-    </header>
-
-
-    <div class="hoteles-lista">
-
-      <button
-  type="button"
-  class="hoteles__toggle"
-  id="hoteles-toggle"
-  aria-expanded="false"
-  aria-controls="hoteles-lista"
->
-  <span>Ver más</span>
-  <span class="hoteles__toggle-icon">+</span>
-</button>
-
-<div
-  class="hoteles-lista"
-  id="hoteles-lista"
-  hidden
->
-
-  <button
-    type="button"
-    class="hotel-trigger"
-    data-hotel="gran-plaza"
-  >
-    <span class="hotel-trigger__numero">01</span>
-
-    <span class="hotel-trigger__contenido">
-      <strong>Gran Plaza Durango</strong>
-      <small>Ver información</small>
-    </span>
-
-    <span class="hotel-trigger__flecha">→</span>
-  </button>
-
-  <button
-    type="button"
-    class="hotel-trigger"
-    data-hotel="hacienda-suites"
-  >
-    <span class="hotel-trigger__numero">02</span>
-
-    <span class="hotel-trigger__contenido">
-      <strong>Hacienda Suites</strong>
-      <small>Ver información</small>
-    </span>
-
-    <span class="hotel-trigger__flecha">→</span>
-  </button>
-
-  <button
-    type="button"
-    class="hotel-trigger"
-    data-hotel="posada-real"
-  >
-    <span class="hotel-trigger__numero">03</span>
-
-    <span class="hotel-trigger__contenido">
-      <strong>Posada Real</strong>
-      <small>Ver información</small>
-    </span>
-
-    <span class="hotel-trigger__flecha">→</span>
-  </button>
-
-</div>
-
-  </div>
-
-</section>
-
-
-<!-- ============================================================
-     POPUP HOTELES
-============================================================= -->
-
-<div
-  class="popup-overlay"
-  id="popup-overlay"
-  data-popup-close>
-</div>
-
-
-<div
-  class="popup-card popup-card--hotel"
-  id="popup-hotel"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="popup-nombre"
->
-
-  <button
-    class="popup-card__cerrar"
-    data-popup-close
-    aria-label="Cerrar"
-  >
-    ×
-  </button>
-
-
-  <div class="popup-card__handle"></div>
-
-
-  <div class="popup-card__media">
-
-    <img
-      id="popup-imagen"
-      src="assets/images/hotel-placeholder.webp"
-      alt=""
-      loading="lazy"
-      decoding="async"
-    />
-
-  </div>
-
-
-  <div class="popup-card__body">
-
-    <p class="popup-card__eyebrow">
-      Hospedaje
-    </p>
-
-
-    <h3
-      class="popup-card__nombre"
-      id="popup-nombre"
-    >
-      Nombre del hotel
-    </h3>
-
-
-    <svg
-      class="popup-card__linea"
-      viewBox="0 0 64 14"
-      aria-hidden="true"
-    >
-      <path d="M2,7 C16,2 48,12 62,7" />
-    </svg>
-
-
-    <p
-      class="popup-card__direccion"
-      id="popup-direccion"
-    >
-      Dirección
-    </p>
-
-
-    <p
-      class="popup-card__descripcion"
-      id="popup-descripcion"
-    >
-      Descripción del hotel.
-    </p>
-
-  </div>
-
-</div>
-
-<!-- ============================================================
-     DESCUENTOS
-============================================================= -->
-
-<section
-  class="escena escena--alt descuentos"
-  id="descuentos"
-  data-section="descuentos"
->
-  <div class="escena__inner container">
-
-    <header class="escena__header center">
-      <p class="eyebrow">Para nuestros invitados</p>
-
-      <h2>Descuentos especiales</h2>
-
-      <svg
-        class="titulo-linea"
-        viewBox="0 0 64 14"
-        aria-hidden="true"
-      >
-        <path d="M2,7 C16,2 48,12 62,7" />
-      </svg>
-    </header>
-
-
-    <div class="descuentos__imagen">
-      <img
-        src="assets/images/descuentos.png"
-        alt="Descuentos especiales para nuestros invitados"
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
-
-  </div>
-</section>
-    <!-- ============================================================
-         MAPA
-    <section class="escena" id="mapa" data-section="mapa">
-      <div class="escena__inner container">
-        <header class="escena__header center">
-          <p class="eyebrow">Cómo llegar</p>
-          <h2>Ubicación de la recepción</h2>
-          <svg class="titulo-linea" viewBox="0 0 64 14" aria-hidden="true"><path d="M2,7 C 16,2 48,12 62,7" /></svg>
-        </header>
-        <div class="mapa__frame">
-          <iframe
-            title="Mapa de la recepción"
-            loading="lazy"
-            src="https://www.google.com/maps?q=Durango,Mexico&output=embed"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-        <div class="center" style="margin-top: var(--space-md)">
-          <a class="boton boton--azul" href="https://maps.google.com" target="_blank" rel="noopener">Abrir en Google Maps</a>
-        </div>
-      </div>
-    </section>
-    ============================================================= -->
 
     <!-- ============================================================
          PREGUNTAS FRECUENTES
@@ -683,49 +417,91 @@
     <section class="escena escena--alt" id="faq" data-section="faq">
       <div class="escena__inner container">
         <header class="escena__header center">
-          <p class="eyebrow">Preguntas frecuentes</p>
-          <h2>Todo lo que debes saber</h2>
+          <p class="eyebrow">Nuestras</p>
+          <h2>recomendaciones</h2>
           <svg class="titulo-linea" viewBox="0 0 64 14" aria-hidden="true"><path d="M2,7 C 16,2 48,12 62,7" /></svg>
         </header>
-        <div id="faq-lista">
+       
+          
           <div class="faq__item">
             <button class="faq__pregunta" data-faq-toggle>
-              <span>¿Puedo llevar acompañante?</span>
+              <span>Descuentos</span>
               <span class="faq__signo">+</span>
             </button>
             <div class="faq__respuesta">
-              <p class="text-body">Solo las personas indicadas en tu invitación tienen un lugar confirmado. Cualquier duda, contáctanos directamente.</p>
+              <p class="text-body">Presentando el nombre de los novios y fecha del evento</p>
+              <h2>Mayrel coture</h2>
+              <p class="text-body">10% de descuento en renta de vestido desde $1000°°</p>
+              <h2>DRosel Sucursal Guadalupe</h2>
+              <p class="text-body">15% de descuento en renta de traje</p>
+
             </div>
           </div>
-          <div class="faq__item">
-            <button class="faq__pregunta" data-faq-toggle>
-              <span>¿Hay lugar para niños?</span>
-              <span class="faq__signo">+</span>
-            </button>
-            <div class="faq__respuesta">
-              <p class="text-body">Queremos que disfrutes la noche sin preocupaciones, por lo que será un evento solo para adultos.</p>
-            </div>
-          </div>
-          <div class="faq__item">
-            <button class="faq__pregunta" data-faq-toggle>
-              <span>¿A qué hora debo llegar?</span>
-              <span class="faq__signo">+</span>
-            </button>
-            <div class="faq__respuesta">
-              <p class="text-body">La ceremonia inicia puntualmente a las 5:30 PM, te esperamos 20 minutos antes.</p>
-            </div>
-          </div>
-          <div class="faq__item">
-            <button class="faq__pregunta" data-faq-toggle>
-              <span>¿Cuál es la fecha límite para confirmar?</span>
-              <span class="faq__signo">+</span>
-            </button>
-            <div class="faq__respuesta">
-              <p class="text-body">Te pedimos confirmar tu asistencia antes del 1 de septiembre de 2026.</p>
-            </div>
-          </div>
-        </div>
+       
+<div class="faq__item">
+<button class="faq__pregunta" data-faq-toggle>
+    <span>Hoteles</span>
+    <span class="faq__signo">+</span>
+  </button>
+
+  <div class="faq__respuesta">
+
+    <div class="hoteles-lista">
+
+      <button
+        type="button"
+        class="hotel-trigger"
+        data-hotel="gran-plaza"
+      >
+        <span class="hotel-trigger__numero">01</span>
+
+        <span class="hotel-trigger__contenido">
+          <strong>Gran Plaza Durango</strong>
+          <small>Ver información</small>
+        </span>
+
+        <span class="hotel-trigger__flecha">→</span>
+      </button>
+
+
+      <button
+        type="button"
+        class="hotel-trigger"
+        data-hotel="hacienda-suites"
+      >
+        <span class="hotel-trigger__numero">02</span>
+
+        <span class="hotel-trigger__contenido">
+          <strong>Hacienda Suites</strong>
+          <small>Ver información</small>
+        </span>
+
+        <span class="hotel-trigger__flecha">→</span>
+      </button>
+
+
+      <button
+        type="button"
+        class="hotel-trigger"
+        data-hotel="posada-real"
+      >
+        <span class="hotel-trigger__numero">03</span>
+
+        <span class="hotel-trigger__contenido">
+          <strong>Posada Real</strong>
+          <small>Ver información</small>
+        </span>
+
+        <span class="hotel-trigger__flecha">→</span>
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
       </div>
+      </div> 
     </section>
 
    
@@ -741,14 +517,26 @@
     </section>
 
     <!-- ============================================================
+     IMAGEN FIJA / PARALLAX 2
+============================================================= -->
+
+
+<section class="imagen-scroll" id="imagen-scroll-2">
+
+  <div class="imagen-scroll__contenedor">
+    <div class="imagen-scroll__imagen imagen-scroll__imagen--2"></div>
+  </div>
+
+</section>
+    <!-- ============================================================
          FOOTER
-    ============================================================= -->
+    ============================================================= 
     <footer class="footer">
       <p class="footer__nombres">Lilieth &amp; Jorge</p>
       <p class="label-small">10 de Octubre, 2026 — Durango, México</p>
       <p class="footer__credito">Invitación digital hecha con cariño</p>
     </footer>
-
+-->
   </main>
 
   <script type="module" src="js/main.js"></script>
