@@ -406,16 +406,29 @@
     color: #1b3a6b;              /* O el color que combine con la imagen */
 }
 #cronograma .banner-texto .eyebrow {
-  font-size: 1rem;
+  font-size: 1.4rem;
 }
 
 #cronograma .banner-texto h2 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .banner-texto .titulo-linea {
     width: 90px;
     margin: .5rem auto 0;
+}
+#pases-nombre {
+    width: 350px;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    overflow-wrap: break-word;
+    line-height: 1.2;
+}
+#pases-numero {
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: 'Inter';
 }
 
 /* ---- Código de vestimenta ---- */
@@ -503,7 +516,7 @@
 }
 
 .mensaje-ninos h2 {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   margin-top: 1.2rem;
   color: #fff;
 }
@@ -531,6 +544,21 @@
   grid-column: span 2;
   aspect-ratio: 16 / 10;
 }
+
+/* ---- Nuestra historia ---- */
+#wedding-gallery {
+  background: var(--color-white);
+  justify-content: flex-start;
+   min-height: auto;
+}
+
+#wedding-gallery .escena__inner {
+  padding-top: 0;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  padding-bottom: 0%;
+}
+
 /* ==========================================================================
    CARRUSEL
    ========================================================================== */
@@ -639,7 +667,7 @@
 }
 
 .carousel-indicators button.active {
-  background: #6a5b1e;
+  background: #1b3a6b;
 
   transform: scale(1.2, 1);
 }
@@ -692,6 +720,26 @@
 color: var(--color-white);
 
 }
+
+.btn-regalos {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 12px 28px;
+    border: 1px solid #1b3a6b;
+    border-radius: 999px;
+
+    background: #1b3a6b;
+    backdrop-filter: blur(8px);
+
+    color: #fff;
+    text-decoration: none;
+    font-family: inherit;
+    transition: .3s;
+}
+
 /* ---- Hoteles ---- */
 .hoteles__lista {
   display: flex;
@@ -782,7 +830,7 @@ color: var(--color-white);
 }
 
 #mensaje-final .escena__inner {
-  padding-top: 10rem;
+  padding-top: 1rem;
   padding-left: var(--gutter);
   padding-right: var(--gutter);
   padding-bottom: 4rem;
@@ -795,7 +843,7 @@ color: var(--color-white);
   margin-top: var(--space-lg);
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.4rem;
+  font-size: 2.2rem;
 }
 
 /* ---- Footer ---- */
@@ -875,4 +923,165 @@ color: var(--color-white);
 
 .imagen-scroll__imagen--2 {
   background-image: url("../assets/images/DSC00325.jpg");
+}
+
+
+
+/* ==========================================
+   GALERÍA BODA
+========================================== */
+
+.wedding-gallery {
+    width: 100%;
+
+    padding-top: 100px;
+    padding-bottom: 150px;
+}
+
+
+/* ==========================================
+   TARJETAS
+========================================== */
+
+.gallery-card {
+
+    position: sticky;
+
+    top: 60px;
+
+    width: min(900px, 86vw);
+
+    height: 600px;
+
+    margin: 0 auto 180px;
+
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    background: #fff;
+
+
+
+    /*
+       Importante:
+       Todas tienen exactamente
+       el mismo tamaño.
+    */
+
+    transform-origin: center center;
+
+    will-change: transform;
+}
+
+
+/* ==========================================
+   IMAGEN
+========================================== */
+
+.gallery-card img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* ==========================================
+   ORDEN DE LAS TARJETAS
+========================================== */
+
+.gallery-card:nth-child(1) {
+    z-index: 1;
+}
+
+.gallery-card:nth-child(2) {
+    z-index: 2;
+}
+
+.gallery-card:nth-child(3) {
+    z-index: 3;
+}
+
+.gallery-card:nth-child(4) {
+    z-index: 4;
+}
+
+.gallery-card:nth-child(5) {
+    z-index: 5;
+}
+
+.gallery-card:nth-child(6) {
+    z-index: 6;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+    .gallery-card {
+
+        width: 88vw;
+
+        height: 65vh;
+
+        margin-bottom: 150px;
+
+        border-radius: 20px;
+    }
+}
+
+
+/* ==========================================
+   CELULAR
+========================================== */
+
+@media (max-width: 600px) {
+
+    .wedding-gallery {
+
+        padding-top: 60px;
+
+        padding-bottom: 100px;
+    }
+
+    .gallery-card {
+
+        top: 25px;
+
+        width: 90vw;
+
+        height: 70vh;
+
+        margin-bottom: 120px;
+
+        border-radius: 16px;
+    }
+}
+.solo-escritorio {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    body > *:not(.solo-escritorio) {
+        display: none !important;
+    }
+
+    .solo-escritorio {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        text-align: center;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 24px;
+    }
 }

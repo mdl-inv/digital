@@ -6,51 +6,92 @@
 
 const DATOS_HOTELES = {
 
-  "gran-plaza": {
+  "ludivina": {
 
-    nombre: "Gran Plaza Durango",
+    nombre: "Hotel Ludivina",
 
     imagen:
-      "assets/images/hotel-gran-plaza.webp",
+      "assets/images/ludivina.jpg",
 
     direccion:
-      "Blvd. Francisco Villa 555, Durango, Dgo.",
+      "Blvrd Benito Juárez 600, Los Pinos, 25720 Monclova, Coah. 8666342800",
 
     descripcion:
-      "A 10 minutos del lugar de la recepción. Cuenta con tarifa preferencial para invitados de la boda mencionando el código LILIJORGE."
+      "A 6 minutos del lugar de la recepción."
 
   },
 
 
-  "hacienda-suites": {
+  "hotel-olimpia": {
 
-    nombre: "Hacienda Suites",
+    nombre: "Hotel Olímpia",
 
     imagen:
-      "assets/images/hotel-hacienda-suites.webp",
+      "assets/images/olimpia.jpg",
 
     direccion:
-      "Camino Real 210, Durango, Dgo.",
+      "C. M. Hidalgo 203 A, Zona Centro, 25700 Monclova, Coah. 8666336211",
 
     descripcion:
-      "Habitaciones amplias tipo suite, ideales para familias. A 15 minutos de la recepción."
-
+      "A 5 minutos del lugar de la recepción."
   },
 
 
-  "posada-real": {
+  "holiday-inn": {
 
-    nombre: "Posada Real",
+    nombre: "Holiday Inn Monclova",
 
     imagen:
-      "assets/images/hotel-posada-real.webp",
+      "assets/images/holiday.jpeg",
 
     direccion:
-      "Av. 20 de Noviembre 88, Durango, Dgo.",
+      "Blvd. Harold R. Pape # 200 Col. Guadalaupe, Guadalupe, 25750 Monclova, Coah. 8666320025",
 
     descripcion:
-      "Opción económica y céntrica, a 20 minutos de la recepción con servicio de transporte disponible."
+      "A 6 minutos del lugar de la recepción."
 
+  },
+
+    "sleep-inn": {
+
+    nombre: "Sleep Inn Monclova",
+
+    imagen:
+      "assets/images/sleep-inn.jpg",
+
+    direccion:
+      "Blvd Harold R. Pape 2008, Jardines del Valle, 25732 Monclova, Coah. 8661771900",
+
+    descripcion:
+     "A 10 minutos del lugar de la recepción."
+  },
+
+    "one-monclova": {
+
+    nombre: "One Monclova",
+
+    imagen:
+      "assets/images/one-monclova.jpg",
+
+    direccion:
+      "Blvd Harold R. Pape 2008, Jardines del Valle, 25732 Monclova, Coah. 8661580780",
+
+    descripcion:
+     "A 6 minutos del lugar de la recepción."
+  },
+
+    "hotel-bluu": {
+
+    nombre: "Hotel Bluu",
+
+    imagen:
+      "assets/images/bluu.jpg",
+
+    direccion:
+      "Blvd. Harold R. Pape 2008, Jardines del Valle, 25732 Monclova, Coah. 8661580780",
+
+    descripcion:
+     "A 15 minutos del lugar de la recepción, cerca de la casa de la novia."
   }
 
 };

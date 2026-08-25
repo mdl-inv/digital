@@ -24,7 +24,7 @@ async function obtenerListaInvitados() {
   try {
 
     const respuesta = await fetch(
-      "https://raw.githubusercontent.com/mdl-inv/data-updates/main/naylayale/invitados.json"
+      "https://raw.githubusercontent.com/mdl-inv/data-updates/main/liliyjorge/invitadoslyj.json"
     );
 
     if (!respuesta.ok) {

@@ -63,3 +63,64 @@ export function inicializarImagenScroll() {
   });
 
 }
+
+
+const galleryCards = document.querySelectorAll(".gallery-card");
+
+function updateGallery() {
+
+    galleryCards.forEach((card, index) => {
+
+        const nextCard = galleryCards[index + 1];
+
+        if (!nextCard) return;
+
+        const nextRect =
+            nextCard.getBoundingClientRect();
+
+        /*
+         * Qué tan cerca está la siguiente
+         * tarjeta de la posición sticky.
+         */
+
+        const stickyPosition = 60;
+
+        let progress =
+            1 -
+            ((nextRect.top - stickyPosition) /
+            window.innerHeight);
+
+        progress = Math.max(
+            0,
+            Math.min(1, progress)
+        );
+
+        /*
+         * Efecto MUY sutil.
+         *
+         * La tarjeta sigue teniendo
+         * prácticamente el mismo tamaño.
+         */
+
+        const scale =
+            1 - (progress * 0.015);
+
+        card.style.transform =
+            `scale(${scale})`;
+    });
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateGallery,
+    { passive: true }
+);
+
+window.addEventListener(
+    "resize",
+    updateGallery
+);
+
+updateGallery();
+

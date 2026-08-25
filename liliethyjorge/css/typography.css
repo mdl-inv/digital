@@ -68,6 +68,14 @@ h2,
   margin-right: 2rem;
 }
 
+.text-body-final {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: var(--color-graphite);
+  line-height: var(--lh-body);
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
 
 /* Utilidad: divide texto en spans por letra para animar letra por letra.
    El HTML ya viene envuelto por char.js en tiempo de ejecución. */
