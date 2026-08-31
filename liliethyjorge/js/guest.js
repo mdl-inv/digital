@@ -495,3 +495,43 @@ window.addEventListener(
   "load",
   checkTimeline
 );
+
+const botonCopiar = document.getElementById("copiar-cuenta");
+const numeroClabe = document.getElementById("numero-clabe");
+const mensajeCopiado = document.getElementById("mensaje-copiado");
+
+if (botonCopiar && numeroClabe) {
+
+  botonCopiar.addEventListener("click", async () => {
+
+    const clabe = numeroClabe.textContent.trim();
+
+    try {
+
+      await navigator.clipboard.writeText(clabe);
+
+      botonCopiar.textContent = "¡Copiada!";
+      mensajeCopiado.textContent = "CLABE copiada";
+
+      setTimeout(() => {
+        botonCopiar.textContent = "Copiar CLABE";
+        mensajeCopiado.textContent = "";
+      }, 2000);
+
+    } catch (error) {
+
+      const seleccion = window.getSelection();
+      const rango = document.createRange();
+
+      rango.selectNodeContents(numeroClabe);
+
+      seleccion.removeAllRanges();
+      seleccion.addRange(rango);
+
+      mensajeCopiado.textContent =
+        "Presiona Ctrl + C para copiar";
+    }
+
+  });
+
+}

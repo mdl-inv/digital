@@ -1085,3 +1085,102 @@ color: var(--color-white);
         font-size: 24px;
     }
 }
+
+
+/* ============================================================
+   MESA DE REGALOS
+============================================================ */
+
+.regalos-imagen {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.regalos-imagen .historia__imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+/* ============================================================
+   DATOS BANCARIOS SOBRE LA IMAGEN
+============================================================ */
+
+.datos-bbva {
+  position: absolute;
+
+  top: 82%;
+  left: 50%;
+
+  width: 48%;
+
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+}
+
+
+/* TITULAR */
+
+.datos-bbva__titular {
+  margin: 0 0 6px;
+
+  font-size: 10px;
+  line-height: 1.2;
+
+  color: #333;
+}
+
+
+/* CLABE */
+
+.datos-bbva__clabe {
+  margin: 0 0 8px;
+
+  font-family: monospace;
+  font-size: 11px;
+  line-height: 1.2;
+
+  color: #333;
+
+  /* Permite seleccionar la CLABE */
+  user-select: text;
+  -webkit-user-select: text;
+
+  cursor: text;
+}
+
+
+/* BOTÓN */
+
+.datos-bbva__boton {
+  padding: 5px 10px;
+
+  border: none;
+  border-radius: 20px;
+
+  background: #285775;
+  color: #fff;
+
+  font-family: inherit;
+  font-size: 10px;
+
+  cursor: pointer;
+}
+
+
+/* MENSAJE */
+
+.datos-bbva__mensaje {
+  display: block;
+
+  margin-top: 4px;
+
+  font-size: 7px;
+  line-height: 1;
+
+  color: #333;
+}
